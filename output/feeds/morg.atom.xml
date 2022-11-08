@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Benoît HERVIER - Morg</title><link href="https://rvier.fr/" rel="alternate"></link><link href="https://rvier.fr/feeds/morg.atom.xml" rel="self"></link><id>https://rvier.fr/</id><updated>2022-10-30T00:00:00+02:00</updated><entry><title>My life in plain text</title><link href="https://rvier.fr/my-life-in-plain-text.html" rel="alternate"></link><published>2022-10-30T00:00:00+02:00</published><updated>2022-10-30T00:00:00+02:00</updated><author><name>Benoît HERVIER</name></author><id>tag:rvier.fr,2022-10-30:/my-life-in-plain-text.html</id><summary type="html">&lt;p&gt;For a long time i used Orgmode file to take notes, todos, and sometime agenda events. While i like a lot the Orgzly app on Android, i wasn't happy with the sync, and worse, without a specific tool the OrgMode format is quite unusable due to his complexity.&lt;/p&gt;
+&lt;p&gt;So i …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For a long time i used Orgmode file to take notes, todos, and sometime agenda events. While i like a lot the Orgzly app on Android, i wasn't happy with the sync, and worse, without a specific tool the OrgMode format is quite unusable due to his complexity.&lt;/p&gt;
+&lt;p&gt;So i tryed many, many tools with Markdown support, but all seems missing somethi for my use:&lt;/p&gt;
+&lt;p&gt;On Android :
+- Markor : No agenda
+- Joplin: No agenda and i don't like how the file are named (uuid.txt)
+- GitJournal : Only for journal  &lt;/p&gt;
+&lt;p&gt;On Linux :
+- There is todo.txt cli to manage todo in a plain text
+- vim to edit markdown&lt;/p&gt;
+&lt;h3&gt;Templates&lt;/h3&gt;
+&lt;p&gt;My requirements are quite simple, so i opted for a simple files structure, and templates :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;todo.txt (todotxt format)
+done.txt (todotxt format)
+agenda.txt (agendatxt format)
+quicknote.txt (markdown)
+expenses.txt (expensetxt format)
+archives/
+attachments/
+journal/
+  YYYY-mm-dd.txt
+notes/
+  a_markdown_note.md
+  an_other_markdown_note.md
+  Projects/
+    project_1.md
+    project_2.md
+Posts/
+  my_life_in_plain_text.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;Todotxt format&lt;/h4&gt;
+&lt;p&gt;&lt;a href="http://todotxt.org/"&gt;Todo.txt: Future-proof task tracking in a file you control&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Agendatxt format&lt;/h4&gt;
+&lt;p&gt;I ve created a agendatxt format similar to todotxt. Each line is an event, three format are accepted :&lt;/p&gt;
+&lt;p&gt;YYYY-mm-dd event for all day&lt;br&gt;
+YYYY-mm-dd HH:MM event at hour:minute&lt;br&gt;
+YYYY-mm-dd HH:MM HH:MM event with a start and a end&lt;/p&gt;
+&lt;h4&gt;Expensetxt format&lt;/h4&gt;
+&lt;p&gt;I ve created an expensetxt format similar to todotxt. Each line is an expense :&lt;/p&gt;
+&lt;p&gt;YYYY-mm-dd 000.00 short description&lt;/p&gt;
+&lt;h4&gt;Markdown format&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://fr.wikipedia.org/wiki/Markdown"&gt;Markdown — Wikipédia&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;On desktop&lt;/h2&gt;
+&lt;p&gt;As a dev i use a lot vim, and terminals, i take notes with vim and use some aliases on zsh to quick add a todo or a journal entry.&lt;/p&gt;
+&lt;h2&gt;On mobile&lt;/h2&gt;
+&lt;p&gt;This is more complex, as i need to visualize quickly events and todos, but also takes notes. So i write my own app. It s not finished yet, and look likes more a Proof of Concept than a finished app, many features are still missing, but i use it daily.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MOrg Screenshot" src="https://github.com/brvier/MOrg/blob/master/screenshots/main_dark.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;And if you want to join me on this journey, you are more than welcomed.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/brvier/MOrg"&gt;MOrg on GitHub&lt;/a&gt;&lt;/p&gt;</content><category term="Morg"></category></entry></feed>
