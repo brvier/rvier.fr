@@ -54,6 +54,7 @@ ARCHIVES_SAVE_AS = "posts.html"
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = False
 
+ARTICLE_ORDER_BY = "reversed-date"
 
 # Theme customizations
 MINIMALXY_CUSTOM_CSS = "static/custom.css"
