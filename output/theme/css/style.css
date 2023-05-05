@@ -1,12 +1,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box;css
-  
+
   /* Color scheme */
-  
+
   --textcolor: #282828;
-  --bgcolor: #fbfbfc;
-  --highlight: #b57614;
-  --h2: #d78821;
-  --h1: #af3a03;
+  --bgcolor: #fbfbfb;
+  --highlight: #076678;
+  --h2: #222;
+  --h1: #111;
+  --textarea: #f4f4f4;
 
 }
 
@@ -17,12 +18,13 @@
     --highlight: #fabd2f;
     --h2: #d78821;
 	--h1: #fe8019;
+    --textarea: #504945;
  }
 }
 
 body {
   font-size: 16px;
-  font-family: monospace;
+  font-family: sans-serif;
   line-height: 1.4;
   color: var(--textcolor);
   background: var(--bgcolor);
@@ -94,7 +96,9 @@ a:hover {
 main h1 {
   font-size: 1em;
   margin: 0 0 1em 0;
-  color: var(--h1)
+  color: var(--h1);
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
 }
 
 h2, h3, h4 {
@@ -102,6 +106,11 @@ h2, h3, h4 {
   font-weight: 600;
   margin: 1.6em 0 .6em 0;
   color: var(--h2);
+  text-transform: uppercase;
+}
+
+article h2,h3,h4 {
+  border-bottom: 1px solid #ddd;
 }
 
 p, ul, ol, article {
@@ -184,8 +193,9 @@ article img {
     max-width: 200px;
     max-height: 200px;
 }
+
 code, textarea {
-  font-family: ui-monospace, SF Mono, Menlo, Monaco, Andale Mono, monospace;
+  font-family: monospace;
   font-size: 1em;
   opacity: .7;
 }
@@ -201,13 +211,14 @@ pre, textarea { /* for code samples */
   padding:.6em .9em;
   margin: .8em 0 1em 0;
   position: relative;
+
   display: block;
   width: 100%;
   white-space: pre;
   border:0;
   border-radius: 4px;
-  background:rgba(255,255,100,.075);
-  box-shadow: inset 1px 1px 0 rgba(0,0,0,.2), inset -1px -1px 0 rgba(0,0,0,.04);
+  background: var(--textarea);
+  #box-shadow: inset 1px 1px 0 rgba(0,0,0,.2), inset -1px -1px 0 rgba(0,0,0,.04);
   overflow: auto;
 }
 
@@ -276,7 +287,7 @@ main:target iframe {
 
 /* External links */
 
-/*a[href*="//"]:after { 
+/*a[href*="//"]:after {
   font-weight: 300;
   font-size: .85em;
   content: "\2197";
@@ -291,7 +302,7 @@ a[href*="//"]:hover:after {
 
 /* File links */
 
-a:before { 
+a:before {
   font-size: .7em;
   margin-right: .4em;
 }
@@ -329,7 +340,7 @@ article h4 {
 }
 
 
-article time {
+time {
   margin-left: .6em;
   font-size: .8em;
   font-weight: 400;
@@ -483,22 +494,22 @@ article time {
 /* ------- Print ------- */
 
 @media print {
-  
+
   nav, .lightbox:target:after { display: none; }
-  
+
   article, figure, img {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   /* Inline footnotes */
-  
+
   label + input + small { display: inline; }
   label + input + small:before { content: "["; }
   label + input + small:after { content: "]"; }
-  
+
   /* Slides */
-  
+
   .slides, .slides figure {
     position: relative;
     height: auto;
@@ -513,5 +524,5 @@ article time {
     height: 100vh;
     object-fit: contain;
   }
-    
+
 }

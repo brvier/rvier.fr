@@ -1,4 +1,4 @@
-Title: My life in plain text
+Title: My life in plain text (🇬🇧)
 Date: 2022-10-30
 Modified: 2022-11-08
 Category: Morg
@@ -11,7 +11,7 @@ So i tryed many, many tools with Markdown support, but all seems missing somethi
 
 	- Markor : No agenda
 	- Joplin: No agenda and i don't like how the file are named (uuid.txt)
-	- GitJournal : Only for journal  
+	- GitJournal : Only for journal
 
 - On Linux :
 
@@ -49,8 +49,8 @@ My requirements are quite simple, so i opted for a simple files structure, and t
 
 I ve created a agendatxt format similar to todotxt. Each line is an event, three format are accepted :
 
-YYYY-mm-dd event for all day  
-YYYY-mm-dd HH:MM event at hour:minute  
+YYYY-mm-dd event for all day
+YYYY-mm-dd HH:MM event at hour:minute
 YYYY-mm-dd HH:MM HH:MM event with a start and a end
 
 #### Expensetxt format
@@ -59,7 +59,7 @@ I ve created an expensetxt format similar to todotxt. Each line is an expense :
 
 YYYY-mm-dd 000.00 short description
 
-#### Markdown format 
+#### Markdown format
 
 [Markdown — Wikipédia](https://fr.wikipedia.org/wiki/Markdown)
 

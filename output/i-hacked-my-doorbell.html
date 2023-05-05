@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+       <link rel="stylesheet" href="/theme/css/style.css">
+
+       <title>Benoît HERVIER - I hacked my doorbell ! (🇬🇧)</title>
+
+	    <!-- Recommended minimum -->
+		<meta property="og:title" content="Rvier.fr">
+		<meta property="og:description" content="Benoît HERVIER - Full-stack and mobile developper>
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@b_rvier">
+		<meta name="twitter:creator" content="@b_rvier">
+		<meta name="twitter:title" content="Benoît HERVIER - Full-stack and mobile developper">
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/theme/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/theme/images/favicon-16x16.png">
+		<link rel="mask-icon" href="/theme/images/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+  
+</head>
+
+<body>
+        <header>
+                <h1>~ <a href="/">Benoît HERVIER</a></h1>
+       <nav>
+            / <a href="/posts">posts</a>
+            / <a href="/pages/morg.html">morg</a>
+            / <a href="/pages/portfolio.html">portfolio</a>
+        </nav>
+         </header>
+        <main>
+  <h1 class="entry-title">I hacked my doorbell ! (🇬🇧)</h1>
+	 
+
+  <article>
+    <p>As a developer, concentration and focus are crucial to accomplish tasks effectively and efficiently. Unfortunately, working in a noisy or distracting environment can present a significant challenge to achieving optimal concentration. This is where noise-canceling headphones come in handy. They block out external sounds and reduce noise distractions.
+But I also work from home and often get deliveries, so I don't hear the doorbell.</p>
+<p>So I hacked my doorbell!</p>
+<h2>Objectives</h2>
+<ul>
+<li>Keep the wireless solution</li>
+<li>Always be notified by the sound on the receiver</li>
+<li>Be informed by a notification on the phone and the computer</li>
+<li>Solve the problem of fast discharge of the battery of the transceiver</li>
+<li>Realize a project with a Raspberry Pi Pico and MicroPython :)</li>
+</ul>
+<h2>Solutions</h2>
+<ul>
+<li>
+<p>Hack the RF receiver:</p>
+<ul>
+<li>Hacking the RF receiver might be the easiest solution, except that the current RF transmitter uses a CRC2032 battery.
+This transmitter does not work well if the battery is below 70% because the transmission range is too low and the receiver does not receive it.</li>
+</ul>
+</li>
+<li>
+<p>Listening to 433 Mhz RF:</p>
+<ul>
+<li>Another solution could be to listen to the 433 Mhz RF, but again, I have to change the power of the RF transmitter.</li>
+</ul>
+</li>
+<li>
+<p>Hacking the RF transmitter:</p>
+<ul>
+<li>The button is pull down to gnd when pressed.</li>
+<li>The transmitter works well with a 3.3 V power supply.</li>
+</ul>
+<p>So I decided to go with this solution, having at my disposal a mini solar panel, its charger, and a pico.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code> ┌────────────────────────────────────────────────────────────────────────────────┐
+ │                                                                                │
+ │   ┌────────────────────────────────────────────────────────────────────────┐   │
+ │   │                                                                        │   │
+ │   │        Button                                         CRC2032          │   │
+ │   │     ┌──────────┐                                   ┌───────────┐       │   │
+ │   │     │          │                                   │     -     ├───────┼───┼─────────────────┐
+ │   │     │          │                                   │           │       │   │                 │
+ │   │     │          │                                   │           │       │   │                 │
+ │   │     │          │                                   │     +     ├───────┼───┼─────────────┐   │
+ │   │     └────┬─────┘                                   └───────────┘       │   │             │   │
+ │   │          │                                                             │   │             │   │
+ │   │          │                                                             │   │             │   │
+ │   └──────────┼─────────────────────────────────────────────────────────────┘   │             │   │
+ │              │                                                                 │             │   │
+ └──────────────┼─────────────────────────────────────────────────────────────────┘             │   │
+                │                                                                               │   │
+                │                                                                               │   │
+                │                                                                               │   │
+                │       220 Ohms                                                                │   │
+                └───────/\/\/\/───────────────────────────────────────────────────────────┐     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+                                                                                          │     │   │
+   ┌────────────────────────────────────────────────────────────────────────────────┐     │     │   │
+   │                                                                                │     │     │   │
+   │                                                                                │     │     │   │
+   │                                                                                │     │     │   │
+   │                                                                                │     │     │   │
+   │                                                                                │     │     │   │
+   │                                     Raspberry Pico W                           │     │     │   │
+   │                                                                                │     │     │   │
+   │                                                                                │     │     │   │
+   │                                                                                │     │     │   │
+   │                                                                                │     │     │   │
+   │   VSYS GND      3.3V                                              PIN 17       │     │     │   │
+   │                                                                                │     │     │   │
+   └─────┬───┬────────┬───────────────────────────────────────────────────┬─────────┘     │     │   │
+         │   │        │                                                   │               │     │   │
+         │   │        │                                                   └───────────────┘     │   │
+         │   │        │                                                                         │   │
+         │   │        │                                                                         │   │
+         │   │        │                                                                         │   │
+         │   │        │                                                                         │   │
+         │   │        │                                                                         │   │
+         │   │        └─────────────────────────────────────────────────────────────────────────┘   │
+         │   │                                                                                      │
+         │   │                                                                                      │
+         │   ├──────────────────────────────────────────────────────────────────────────────────────┘
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+         │   │
+┌────────┴───┴───────────────────┐               ┌──────────────────────────────┐
+│         Solaar Charger         │               │         Solaar Panel         │
+│                                ├───────────────┤                              │
+│                                │               │                              │
+│                                │               │                              │
+│                                ├───────────────┤                              │
+│                                │               │                              │
+│                                │               │                              │
+│                                │               │                              │
+│                                │               │                              │
+│                                │               │                              │
+│                                │               │                              │
+└────────────────────────┬────┬──┘               └──────────────────────────────┘
+                         │    │
+                         │    │                  ┌──────────────────────────────┐
+                         │    │                  │        Battery 18650         │
+                         │    │                  │                              │
+                         │    └──────────────────┤                              │
+                         │                       │                              │
+                         │                       │                              │
+                         │                       │                              │
+                         │                       │                              │
+                         └───────────────────────┤                              │
+                                                 │                              │
+                                                 │                              │
+                                                 │                              │
+                                                 └──────────────────────────────┘
+</code></pre></div>
+
+<h2>Software</h2>
+<p>Let's not lie, monitoring a GPIO port is not the hard part. The problem is the consumption of the Pico RPI. 21mA without deepsleep.
+The deepsleep method of the micropython port does not allow to be woken up by a GPIO Interupt, I found this lib that does it for us : https://github.com/tomjorquera/pico-micropython-lowpower-workaround .</p>
+<p>Results :</p>
+<ul>
+<li>21mA without the "sleep" mode</li>
+<li>0.06mA with</li>
+</ul>
+<p>For notification I use my own self-hosted instance of gotify.</p>
+<p>Source : https://github.com/brvier/sonette</p>
+<h2>Picture</h2>
+<p><img alt="Sonette" src="images/sonette.png"></p>
+  </article>
+  
+  <label><small>
+    <time class="published" datetime="2023-05-05T00:00:00+02:00">
+      Fri, 05 May 2023
+    </time>
+        / <a href="/category/misc.html">misc</a>
+  </label></small><!-- /.post-info -->
+        </main>
+</body>
+</html>

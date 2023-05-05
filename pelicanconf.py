@@ -61,3 +61,13 @@ MINIMALXY_CUSTOM_CSS = "static/custom.css"
 MINIMALXY_FAVICON = "/theme/images/favicon.ico"
 MINIMALXY_START_YEAR = 2022
 MINIMALXY_CURRENT_YEAR = 2022
+
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+    },
+    'output_format': 'html5',
+    'tab_length': 2
+}
