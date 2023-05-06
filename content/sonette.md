@@ -1,10 +1,10 @@
-Title: J'ai hacké ma sonette ! (🇫🇷)
+Title: J'ai hacké ma soNnette ! (🇫🇷)
 Date: 2023-05-05
 
 En tant que développeur, la concentration et la focalisation sont cruciales pour accomplir les tâches de manière efficace et efficiente. Malheureusement, travailler dans un environnement bruyant ou distrayant peut représenter un défi important pour atteindre une concentration optimale. C'est là que les casques antibruit sont utiles. Ils bloquent les sons externes et réduisent les distractions sonores.
 Mais je travaille également chez moi et je reçois souvent des livraisons, donc je n'entends pas la sonnette de la porte.
 
-Du coup, j ai hacké ma sonette !
+Du coup, j ai hacké ma sonnette !
 
 ## Objectifs
 
