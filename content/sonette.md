@@ -1,4 +1,4 @@
-Title: J'ai hacké ma soNnette ! (🇫🇷)
+Title: J'ai hacké ma sonnette ! (🇫🇷)
 Date: 2023-05-05
 
 En tant que développeur, la concentration et la focalisation sont cruciales pour accomplir les tâches de manière efficace et efficiente. Malheureusement, travailler dans un environnement bruyant ou distrayant peut représenter un défi important pour atteindre une concentration optimale. C'est là que les casques antibruit sont utiles. Ils bloquent les sons externes et réduisent les distractions sonores.
