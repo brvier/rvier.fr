@@ -143,7 +143,7 @@ Results :
 
 For notification I use my own self-hosted instance of gotify.
 
-Source : https://github.com/brvier/sonette
+Source : [Github](https://github.com/brvier/ihackedmydoorbell)
 
 ## Picture
 
