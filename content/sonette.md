@@ -145,7 +145,7 @@ Resultats :
 
 Pour les notification j utilise ma propre instance auto hebergé de gotify.
 
-Source : https://github.com/brvier/sonette
+Source : [Github](https://github.com/brvier/ihackedmydoorbell)
 
 ## Picture
 
