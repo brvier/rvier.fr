@@ -1,5 +1,5 @@
 AUTHOR = "Benoît HERVIER"
-SITENAME = "Benoît HERVIER"
+SITENAME = "Benoît Rvier.fr"
 SITEURL = ""
 
 PATH = "content"
@@ -71,3 +71,4 @@ MARKDOWN = {
     'output_format': 'html5',
     'tab_length': 2
 }
+

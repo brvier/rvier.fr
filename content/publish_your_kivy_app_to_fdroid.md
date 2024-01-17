@@ -1,6 +1,7 @@
-Title: Publish your Android Kivy app to F-droid (🇬🇧)
+Title: Publish your Android Kivy app to F-droid
 Date: 2021-11-11
 Status: draft
+Lang: EN
 
 It s quite easy to publish your Kivy app to F-Droid.
 

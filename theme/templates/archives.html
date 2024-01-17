@@ -7,8 +7,9 @@
 
 {% for article in dates %}
 		<h2>
-			<time>{{ article.locale_date }}</time>
-			<a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ '🇬🇧' if article.lang == 'EN' else '🇫🇷'}} {{ article.title }}</a>
+            <br><time>{{ article.locale_date }}</time>
+	</h2>
 {% endfor %}
 
 {% endblock %}

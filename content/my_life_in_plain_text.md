@@ -1,7 +1,8 @@
-Title: My life in plain text (🇬🇧)
+Title: My life in plain text
 Date: 2022-10-30
 Modified: 2022-11-08
 Category: Morg
+Lang: EN
 
 For a long time i used Orgmode file to take notes, todos, and sometime agenda events. While i like a lot the Orgzly app on Android, i wasn't happy with the sync, and worse, without a specific tool the OrgMode format is quite unusable due to his complexity.
 

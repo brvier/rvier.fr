@@ -1,5 +1,6 @@
-Title: I hacked my doorbell ! (🇬🇧)
+Title: I hacked my doorbell !
 Date: 2023-05-05
+Lang: EN
 
 As a developer, concentration and focus are crucial to accomplish tasks effectively and efficiently. Unfortunately, working in a noisy or distracting environment can present a significant challenge to achieving optimal concentration. This is where noise-canceling headphones come in handy. They block out external sounds and reduce noise distractions.
 But I also work from home and often get deliveries, so I don't hear the doorbell.

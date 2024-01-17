@@ -1,5 +1,6 @@
-Title: About Kivy (🇬🇧)
+Title: About Kivy
 Date: 2023-04-03
+Lang: EN
 
 When I talk to developers around me, I rarely meet one who knows the Kivy framework.
 

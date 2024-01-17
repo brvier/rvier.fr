@@ -8,7 +8,6 @@
   --h2: #222;
   --h1: #111;
   --textarea: #f4f4f4;
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,6 +44,8 @@ main {
   min-height: 100vh;
   width: 100%;*/
   background: var(--bgcolor);
+  min-height: 90vh;
+
 }
 
 main:target { /* Show main */
@@ -64,6 +65,14 @@ header {
   position: absolute;
   width: 100%;
   z-index: 2;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
 }
 
 header h1 {
@@ -193,6 +202,25 @@ article img {
     max-width: 200px;
     max-height: 200px;
 }
+
+.logo {
+        width: 90vw;
+        max-width: 400px;
+        max-height: 400px;
+    }
+
+@media (prefers-color-scheme: dark) {
+    .logo {
+        max-width: 400px;
+        max-height: 300px;
+       //filter: invert(51%) sepia(31%) saturate(1168%) hue-rotate(354deg) brightness(108%) contrast(84%);
+    }
+    img.logo {
+         content: url('/theme/images/logo4_with_text_gruvbox.svg');
+         padding-bottom: 20px;
+    }
+}
+
 
 code, textarea {
   font-family: monospace;
@@ -509,7 +537,6 @@ time {
   label + input + small:after { content: "]"; }
 
   /* Slides */
-
   .slides, .slides figure {
     position: relative;
     height: auto;
@@ -524,5 +551,4 @@ time {
     height: 100vh;
     object-fit: contain;
   }
-
 }
