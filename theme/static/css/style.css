@@ -512,11 +512,29 @@ time {
 /* ------- Smaller screens ------- */
 
 @media only screen and (max-width: 680px) {
-  body { font-size: 16px; }
+  body { font-size: 16px;}
+  .logo {
+    width: 70vw;
+  }
+  .slides figure p {
+    text-align:center;
+  }
+
+
 }
 
 @media only screen and (max-width: 540px) {
-  nav { width: 100%; } /* Fix for older webkit versions */
+  nav { width: 100%; }
+  body { font-size: 14px;}
+
+  .slides figure p {
+        text-align:center;
+  }
+
+
+ .logo {
+       width: 70vw;
+ }/* Fix for older webkit versions */
 }
 
 /* ------- Print ------- */
