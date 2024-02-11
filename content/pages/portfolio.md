@@ -22,7 +22,7 @@ BitPurse
 </figure>
 <figure>
 <a href="https://github.com/brvier/ownNotes">
-   
+
 <img loading="lazy" alt="" src="/images/ownnotes.png">
 ownNotes
 </a>
@@ -69,6 +69,26 @@ Yacast
 </a>
 <figcaption>Maintaining and evolving a modern captation platform (TNT, DVB, Radios, WebStream) with specific encodings, monitoring and dedicated storage solution.</figcaption>
 </figure>
+
+<figure>
+<a href="https://www.yacast.fr/">
+<img loading="lazy" alt="" src="/images/yacast.jpg">
+HitBox<br>
+Yacast
+</a>
+<figcaption>A Speech to text AI with speakers diarization and accurate timeline.</figcaption>
+</figure>
+
+
+<figure>
+<a href="https://www.yacast.fr/">
+<img loading="lazy" alt="" src="/images/yacast.jpg">
+Sedjem<br>
+Yacast
+</a>
+<figcaption>A mobile captation platform for Nightclubs.</figcaption>
+</figure>
+
 
 <figure>
 <a href="https://www.chronolife.net/">
@@ -155,5 +175,5 @@ BNP Securities Services
 </figure>
 
 
-</div> 
+</div>
 
