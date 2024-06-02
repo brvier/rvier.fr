@@ -207,6 +207,7 @@ article img {
         width: 20vw;
         max-width: 250px;
         max-height: 250px;
+        border-radius: 50%;
     }
 
 @media (prefers-color-scheme: dark) {
@@ -216,7 +217,7 @@ article img {
        //filter: invert(51%) sepia(31%) saturate(1168%) hue-rotate(354deg) brightness(108%) contrast(84%);
     }
     img.logo {
-         content: url('/theme/images/logo_white.png');
+         content: url('/theme/images/me.png');
     }
 }
 
