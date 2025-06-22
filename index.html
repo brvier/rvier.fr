@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benoît HERVIER</title>
+  <script src="tailwind.js"></script>
+  <style>
+    /* Custom Gruvbox Dark Theme */
+    :root {
+      --bg-dark: #282828;
+      --bg-light: #3c3836;
+      --fg-light: #ebdbb2;
+      --accent: #fabd2f;
+      --accent-alt: #fe8019;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--fg-light);
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center min-h-screen text-center p-6">
+    <img id="profile-img" src="./images/NewLogo.svg" alt="Logo"
+      class="w-32 h-32 md:w-64 md:h-64 mb-6 cursor-pointer rounded-full object-cover shadow-lg">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hello, I'm Benoît HERVIER</h1>
+    <p class="text-xl md:text-2xl mb-6">Forging software solutions with passion.</p>
+    <a href="#portfolio"
+      class="bg-[var(--accent)] hover:bg-[var(--accent-alt)] text-[var(--bg-dark)] font-semibold py-2 px-4 rounded-full transition">See
+      My Work</a>
+  </section>
+
+  <!-- About Section -->
+  <section class="bg-[var(--bg-light)] py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">About Me</h2>
+      <p class="text-lg">I'm a full-stack software developer specializing in Linux, Python, Golang.<br>I love creating
+        innovative, efficient and scalable software.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Portfolio</h2>
+
+      <!-- Professional Portfolio Section -->
+      <h3 class="text-2xl font-semibold mb-6">Professional Portfolio</h3>
+      <div class="grid md:grid-cols-2 gap-10 mb-16">
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/hyperion.jpg" alt="Hyperion Captation" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Hyperion Captation (Yacast)</h3>
+          <p class="mb-4">Leading the development and maintenance of a sophisticated media capture platform handling
+            multiple broadcast sources (TNT, DVB, Radio, WebStream). Implemented advanced encoding solutions, real-time
+            monitoring systems, and optimized storage infrastructure to ensure seamless media processing and delivery.
+          </p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: Python / Golang / Linux</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/Logo_Davey_Bickford.png" alt="Davey Bickford Enaex Logo"
+              class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">P2P & Encrypted Communication for Firing Devices (Davey Bickford
+            Enaex)</h3>
+          <p class="mb-4">Implementation of peer-to-peer and encrypted communication protocols between firing devices to
+            enhance safety and reliability in mining operations.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: C++ / Embedded Linux / Cryptography</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/yacast.png" alt="Yacast Logo" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Media Insights (Yacast)</h3>
+          <p class="mb-4">Development of an advanced media analytics platform leveraging state-of-the-art AI
+            technologies including real-time Speech-to-Text with speaker diarization, Optical Character Recognition
+            (OCR), and multiple AI models for comprehensive content analysis and enrichment.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: Python / AI / Linux</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/logo-sattlutech.png.webp" alt="SattLutech Logo" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Event-Based Camera Wearable Device (SattLutech)</h3>
+          <p class="mb-4">Development of a reliable embedded system integrating event-based camera technology with
+            matrix output processing for real-time visualization on a wearable device.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: C++ / Embedded Linux</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/yacast.png" alt="Yacast Logo" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Hitbox (Yacast)</h3>
+          <p class="mb-4">Development of an Android application leveraging USB capture technology to monitor and analyze
+            audio content in nightclubs, dancing bars, and pubs.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: Android / Java / Python</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/nexkin.jpg" alt="Nexkin Mobile SDK" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Nexkin Mobile SDK (Chronolife)</h3>
+          <p class="mb-4">Development of a comprehensive SDK enabling seamless integration of ChronoLife's medical
+            devices and predictive analytics libraries into mobile applications, featuring real-time data processing,
+            secure communication protocols, and advanced health monitoring capabilities.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: C++ / Java / Objectiv-C / Python</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/keesense.jpg" alt="Keesense Mobile App" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Affini-t/Nexkin/Keesense Mobile App (Chronolife)</h3>
+          <p class="mb-4">Cross-platform mobile application (iOS/Android) designed for seamless integration with CE
+            Class IIa medical devices, featuring real-time monitoring of vital physiological parameters, secure data
+            transmission, and intuitive user interface.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: C++ / Java / Objectiv-C / Python / Kivy</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/diagw-test.png" alt="DiagW-FW" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">DiagW-FW (Chronolife)</h3>
+          <p class="mb-4">Development of embedded firmware for the Diag T-Shirt medical device, featuring an ARM Cortex
+            M4 (nRF52) microcontroller. The firmware implements comprehensive management of Bluetooth Low Energy (BLE)
+            connectivity, multiple physiological sensors (temperature, bio-impedance, ECG, respiratory monitoring), NAND
+            flash memory operations, and power management systems, all while maintaining CE Class IIa medical device
+            compliance standards.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: C++ / nRF52 / Nordik SDK</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/chronoweb.png" alt="ChronoWeb" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">ChronoWeb (Chronolife)</h3>
+          <p class="mb-4">Development of secure, HDS-compliant web services and APIs that handle real-time medical data
+            transmission from Chronolife's mobile applications, featuring robust authentication, encrypted data storage,
+            and comprehensive audit logging for regulatory compliance.</p>
+          <a href="#" class="text-[var(--accent)] hover:underline">View Project</a>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: Python / MongoDB / Flask</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/boxrea.jpg" alt="BoxRea" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">BoxRea (Chronolife)</h3>
+          <p class="mb-4">Development of an automated medical system in partnership with the DGA to maintain optimal
+            blood pressure in trauma patients through precise fluid and drug administration, ensuring consistent
+            therapeutic response and improved patient outcomes.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: C++</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/chronomonitoring.png" alt="ChronoMonitoring" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">ChronoMonitoring (Chronolife)</h3>
+          <p class="mb-4">iOS and Android application connected to a CE Class IIa medical device that continuously
+            monitors multiple physiological parameters. Features an advanced deep learning algorithm for predictive
+            event detection, enabling early warning of cardiac decompensation and other critical health conditions. The
+            system provides real-time analysis of vital signs, automated alerts, and personalized health insights to
+            support proactive medical intervention.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: C++ / Java / Objectiv-C / Python / Kivy</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/century21.png" alt="Century21" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Century21.fr (Naxos)</h3>
+          <p class="mb-4">Evolving and maintaining century21.fr website and web services, including automated mailing
+            systems for property alerts and client communications, ensuring seamless integration with real estate agency
+            workflows.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: Python / Django</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/naxos.png" alt="Naxos" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Trans21 (Naxos)</h3>
+          <p class="mb-4">A client/server application for french century21 real estates agencies (at naxos).</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: 4D / Python</div>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/bnp.jpg" alt="BNP Securities Services" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Consultant at BNP Securities Services (Feel Europe Finance)</h3>
+          <p class="mb-4">Consultant for Feel Europe Finance at BNP Securities Services.</p>
+          <div class="text-sm text-[var(--accent)] font-mono">Stack: 4D / C++</div>
+        </div>
+      </div>
+
+      <!-- Open Source Section -->
+      <h3 class="text-2xl font-semibold mb-6">Open Source Projects</h3>
+      <div class="grid md:grid-cols-2 gap-10 mb-16">
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/forrunners-main-left.png" alt="ForRunners" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">ForRunners</h3>
+          <p class="mb-4">A personal tracking app for your running sessions which respects your privacy (Android and
+            iOS).</p>
+          <a href="https://gitlab.com/brvier/ForRunners" class="text-[var(--accent)] hover:underline">View Project</a>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="https://github.com/brvier/Planova/raw/master/assets/Planova.png" alt="Planova"
+              class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Planova</h3>
+          <p class="mb-4">A future proof opinionated software to manage your life in plaintext : todo, agenda, journal
+            and notes (Android).</p>
+          <a href="https://github.com/brvier/planova" class="text-[var(--accent)] hover:underline">View Project</a>
+        </div>
+      </div>
+
+      <!-- Unmaintained Open Source Section -->
+      <h3 class="text-2xl font-semibold mb-6 mt-12">Unmaintained Open Source Applications</h3>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/bitpurse_256.png" alt="BitPurse" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">BitPurse</h3>
+          <p class="mb-4">A nice looking Bitcoin Client for MeeGo, SailfishOS, NemoMobile, and Nokia Harmattan.</p>
+          <a href="https://github.com/brvier/BitPurse" class="text-[var(--accent)] hover:underline">View Project</a>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/ownnotes.png" alt="ownNotes" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">ownNotes</h3>
+          <p class="mb-4">A note taking app with markdown support which sync with Webdav (ownCloud, nextCloud).</p>
+          <a href="https://github.com/brvier/OwnNotes" class="text-[var(--accent)] hover:underline">View Project</a>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/khteditor.jpg" alt="KhtEditor" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">KhtEditor</h3>
+          <p class="mb-4">A source code editor designed for Maemo and Meego devices, support Scripts and Plugins.</p>
+          <a href="https://github.com/brvier/KhtEditor" class="text-[var(--accent)] hover:underline">View Project</a>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/khweeteur.jpeg" alt="Khweeteur" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">Khweeteur</h3>
+          <p class="mb-4">A twitter client for Maemo 5 and n900.</p>
+          <a href="https://github.com/brvier/Khweeteur" class="text-[var(--accent)] hover:underline">View Project</a>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/mPIM.jpg" alt="mCalendar" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">mCalendar</h3>
+          <p class="mb-4">An agenda for Maemo 3 and 4 with Google Agenda sync.</p>
+          <a href="" class="text-[var(--accent)] hover:underline">Archive unavailable</a>
+        </div>
+
+        <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+          <div
+            class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
+            <img src="./images/kmeteo.png" alt="kMeteo" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">kMeteo</h3>
+          <p class="mb-4">A weather application for PalmOS 4 and 5.</p>
+          <a href="" class="text-[var(--accent)] hover:underline">Archive unavailable</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="bg-[var(--bg-light)] py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Let's Connect</h2>
+      <p class="text-lg mb-6">Have a project in mind? I'd love to hear from you!</p>
+      <a href="mailto:you@example.com"
+        class="bg-[var(--accent)] hover:bg-[var(--accent-alt)] text-[var(--bg-dark)] font-semibold py-2 px-4 rounded-full transition">Email
+        Me</a>
+    </div>
+  </section>
+
+  <footer class="text-center py-6 text-sm">
+    &copy; 2025 Benoît HERVIER - Siret : 52003913200029
+  </footer>
+
+  <script>
+    // Toggle between logo and photo on click
+    const profileImg = document.getElementById('profile-img');
+    const img1 = './images/NewLogo.svg';
+    const img2 = './images/me.png';
+    profileImg.addEventListener('click', () => {
+      profileImg.src = profileImg.src.endsWith('NewLogo.svg') ? img2 : img1;
+    });
+  </script>
+
+</body>
+
+</html>
