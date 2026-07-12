@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-label="Audio Fingerprint Orchestrator">
+  <rect width="600" height="300" rx="12" fill="#282828"/>
+  <!-- fingerprint as concentric waveform arcs -->
+  <g fill="none" stroke="#fabd2f" stroke-width="7" stroke-linecap="round">
+    <path d="M120 210 a80 80 0 1 1 160 0"/>
+    <path d="M145 210 a55 55 0 1 1 110 0"/>
+    <path d="M170 210 a30 30 0 1 1 60 0"/>
+  </g>
+  <g fill="none" stroke="#fe8019" stroke-width="7" stroke-linecap="round">
+    <path d="M195 210 a5 5 0 1 1 10 0"/>
+  </g>
+  <!-- index buckets -->
+  <g fill="#3c3836" stroke="#83a598" stroke-width="4">
+    <rect x="360" y="60" width="170" height="44" rx="8"/>
+    <rect x="360" y="122" width="170" height="44" rx="8"/>
+    <rect x="360" y="184" width="170" height="44" rx="8"/>
+  </g>
+  <g font-family="monospace" font-size="19" fill="#8ec07c">
+    <text x="378" y="88">bucket-01</text>
+    <text x="378" y="150">bucket-02</text>
+    <text x="378" y="212">bucket-03</text>
+  </g>
+  <g fill="#fabd2f">
+    <circle cx="505" cy="82" r="7"/>
+    <circle cx="505" cy="144" r="7"/>
+    <circle cx="505" cy="206" r="7"/>
+  </g>
+  <path d="M295 145 h40 m-14 -14 14 14 -14 14" fill="none" stroke="#a89984" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="300" y="272" text-anchor="middle" font-family="monospace" font-size="20" fill="#a89984">fingerprint catalog · index buckets</text>
+</svg>

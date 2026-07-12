@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-label="Speech-to-Text Workers">
+  <rect width="600" height="300" rx="12" fill="#282828"/>
+  <!-- microphone -->
+  <rect x="130" y="60" width="60" height="100" rx="30" fill="#fabd2f"/>
+  <path d="M105 130 a55 55 0 0 0 110 0" fill="none" stroke="#ebdbb2" stroke-width="8" stroke-linecap="round"/>
+  <line x1="160" y1="190" x2="160" y2="220" stroke="#ebdbb2" stroke-width="8" stroke-linecap="round"/>
+  <line x1="130" y1="222" x2="190" y2="222" stroke="#ebdbb2" stroke-width="8" stroke-linecap="round"/>
+  <!-- waveform arrow -->
+  <g stroke="#fe8019" stroke-width="6" stroke-linecap="round">
+    <line x1="250" y1="140" x2="250" y2="140"/>
+    <line x1="265" y1="125" x2="265" y2="155"/>
+    <line x1="280" y1="110" x2="280" y2="170"/>
+    <line x1="295" y1="130" x2="295" y2="150"/>
+    <line x1="310" y1="118" x2="310" y2="162"/>
+  </g>
+  <path d="M330 140 h35 m-12 -12 12 12 -12 12" fill="none" stroke="#a89984" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- transcript with speakers -->
+  <rect x="390" y="65" width="150" height="150" rx="10" fill="#3c3836" stroke="#504945" stroke-width="2"/>
+  <circle cx="412" cy="95" r="9" fill="#8ec07c"/>
+  <rect x="430" y="90" width="90" height="10" rx="5" fill="#ebdbb2" opacity="0.85"/>
+  <circle cx="412" cy="130" r="9" fill="#83a598"/>
+  <rect x="430" y="125" width="70" height="10" rx="5" fill="#ebdbb2" opacity="0.6"/>
+  <circle cx="412" cy="165" r="9" fill="#d3869b"/>
+  <rect x="430" y="160" width="85" height="10" rx="5" fill="#ebdbb2" opacity="0.45"/>
+  <rect x="430" y="185" width="55" height="10" rx="5" fill="#ebdbb2" opacity="0.3"/>
+  <text x="300" y="272" text-anchor="middle" font-family="monospace" font-size="20" fill="#a89984">whisper · diarization · 24/7 gpu</text>
+</svg>

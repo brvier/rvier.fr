@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{.Lang}}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}}, Benoît HERVIER</title>
+  <meta name="description" content="{{.Description}}">
+  <link rel="canonical" href="{{.URL}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{.URL}}">
+  <meta property="og:title" content="{{.Title}}">
+  <meta property="og:description" content="{{.OgDescription}}">
+{{- if .Image}}
+  <meta property="og:image" content="{{.Image}}">
+{{- end}}
+  <meta property="article:published_time" content="{{.Date}}">
+{{- if .Updated}}
+  <meta property="article:modified_time" content="{{.Updated}}">
+{{- end}}
+  <script type="application/ld+json">
+  {{.JSONLD}}
+  </script>
+  <link rel="stylesheet" href="../tailwind.css">
+  <link rel="stylesheet" href="../blog.css">
+</head>
+
+<body class="font-sans">
+
+  <header class="max-w-3xl mx-auto px-6 pt-8 flex justify-between items-center">
+    <a href="../" class="font-bold text-[var(--accent)] hover:underline">Benoît HERVIER</a>
+    <nav class="space-x-6">
+      <a href="index.html" class="text-[var(--accent)] hover:underline">Blog</a>
+      <a href="../#portfolio" class="text-[var(--accent)] hover:underline">Portfolio</a>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-10">
+    <article>
+      <h1 class="text-3xl md:text-4xl font-bold mb-2">{{.Title}}</h1>
+      <p class="text-sm opacity-70 mb-8"><time datetime="{{.Date}}">{{.DisplayDate}}</time>{{if .Updated}}, updated
+        <time datetime="{{.Updated}}">{{.DisplayUpdated}}</time>{{end}}</p>
+
+{{.Body}}
+    </article>
+  </main>
+
+{{template "connect"}}
+{{template "footer"}}
+</body>
+
+</html>

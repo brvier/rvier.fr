@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog, Benoît HERVIER | Go, Python, Software Engineering</title>
+  <meta name="description"
+    content="Articles about Go, Python, software engineering and plain-text productivity, by Benoît Hervier, lead developer and software architect.">
+  <link rel="canonical" href="https://rvier.fr/posts/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rvier.fr/posts/index.html">
+  <meta property="og:title" content="Blog, Benoît HERVIER">
+  <meta property="og:description"
+    content="Articles about Go, Python, software engineering and plain-text productivity.">
+  <link rel="stylesheet" href="../tailwind.css">
+  <link rel="stylesheet" href="../blog.css">
+</head>
+
+<body class="font-sans">
+
+  <header class="max-w-3xl mx-auto px-6 pt-8 flex justify-between items-center">
+    <a href="../" class="font-bold text-[var(--accent)] hover:underline">Benoît HERVIER</a>
+    <nav class="space-x-6">
+      <a href="index.html" class="text-[var(--accent)] hover:underline">Blog</a>
+      <a href="../#portfolio" class="text-[var(--accent)] hover:underline">Portfolio</a>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-10">
+    <h1 class="text-3xl md:text-4xl font-bold mb-10">Blog</h1>
+
+    <div class="space-y-8">
+{{range .Posts}}
+      <article class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
+        <p class="text-sm opacity-70 mb-1"><time datetime="{{.Date}}">{{.DisplayDate}}</time> · {{.LangTag}}</p>
+        <h2 class="text-2xl font-semibold mb-2"><a href="{{.Slug}}.html"
+            class="text-[var(--accent)] hover:underline">{{.Title}}</a></h2>
+        <p>{{.Summary}}</p>
+      </article>
+{{end}}
+    </div>
+  </main>
+
+{{template "connect"}}
+{{template "footer"}}
+</body>
+
+</html>
