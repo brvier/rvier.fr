@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-label="Media Insights">
+  <rect width="600" height="300" rx="12" fill="#282828"/>
+  <!-- media screen -->
+  <rect x="70" y="60" width="260" height="160" rx="10" fill="#3c3836" stroke="#504945" stroke-width="2"/>
+  <polygon points="150,110 150,170 200,140" fill="#fabd2f"/>
+  <!-- transcript lines -->
+  <rect x="230" y="105" width="80" height="10" rx="5" fill="#ebdbb2" opacity="0.85"/>
+  <rect x="230" y="125" width="65" height="10" rx="5" fill="#ebdbb2" opacity="0.6"/>
+  <rect x="230" y="145" width="75" height="10" rx="5" fill="#ebdbb2" opacity="0.4"/>
+  <rect x="230" y="165" width="50" height="10" rx="5" fill="#ebdbb2" opacity="0.25"/>
+  <!-- magnifier with sparkle -->
+  <circle cx="390" cy="150" r="58" fill="#282828" stroke="#fe8019" stroke-width="10"/>
+  <line x1="432" y1="192" x2="490" y2="250" stroke="#fe8019" stroke-width="14" stroke-linecap="round"/>
+  <path d="M390 118 l9 23 23 9 -23 9 -9 23 -9 -23 -23 -9 23 -9 z" fill="#fabd2f"/>
+  <circle cx="425" cy="120" r="6" fill="#8ec07c"/>
+  <circle cx="360" cy="185" r="5" fill="#83a598"/>
+  <text x="300" y="272" text-anchor="middle" font-family="monospace" font-size="20" fill="#a89984">media insights · ai analytics</text>
+</svg>
