@@ -11,6 +11,8 @@ summary: 'From an O(N²) cosine self-join that timed out to HNSW + LATERAL k-nea
 
 Most pgvector articles are about RAG and LLM chatbots. This one is not. It is about a very concrete, non-LLM problem: identifying *who is speaking* on TV and radio, at scale, with nothing more exotic than PostgreSQL.
 
+<img src="../images/pgvector-hnsw-dedup.png" alt="From an O(N&#178;) self-join to HNSW k-NN with LATERAL: speakers deduplicated in rounds" loading="lazy" width="1200" height="627">
+
 ## The problem
 
 I work on a media analytics platform that runs speech-to-text with speaker diarization on broadcast streams, 24/7. Each diarized segment produces a voice embedding: a 256-dimension vector that characterizes a voice. Two segments from the same person should produce vectors that are close in cosine similarity; two different people should not.
