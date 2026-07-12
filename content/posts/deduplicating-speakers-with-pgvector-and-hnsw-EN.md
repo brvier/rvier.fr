@@ -5,6 +5,7 @@ lang: en
 description: How I replaced an O(N²) cosine similarity self-join that timed out with an HNSW index and LATERAL k-nearest-neighbour queries in pgvector, to deduplicate thousands of voice embeddings in PostgreSQL.
 ogDescription: 'From an O(N²) cosine self-join that timed out to HNSW + LATERAL k-nearest-neighbour queries: deduplicating voice embeddings in PostgreSQL.'
 keywords: PostgreSQL, pgvector, HNSW, vector search, embeddings, speaker diarization
+image: https://rvier.fr/images/pgvector-hnsw-dedup.png
 summary: 'From an O(N²) cosine self-join that timed out to HNSW + LATERAL k-nearest-neighbour queries: deduplicating voice embeddings without leaving PostgreSQL.'
 ---
 
