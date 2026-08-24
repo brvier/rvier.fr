@@ -1,0 +1,46 @@
+# Benoît Hervier, Freelance Lead Developer & Software Architect
+
+> Benoît Hervier is a freelance senior software engineer and software architect based in France (SIRET 520 039 132 00037), specializing in Go (Golang), Python and C/C++ on Linux. He designs and builds reliable systems across a wide spectrum: 24/7 real-time media capture and AI analytics platforms (speech-to-text, OCR, audio fingerprinting, vector search), CE-certified Class IIa embedded medical devices, and scalable backend services. Available for freelance missions, consulting and contract work. Contact: b@rvier.fr.
+
+Key facts:
+
+- Name: Benoît Hervier
+- Role: Freelance Lead Developer & Software Architect
+- Location: France (remote-friendly)
+- Languages: French (native), English (professional)
+- Core stack: Go, Python, C, C++, Embedded Linux, PostgreSQL, FFmpeg
+- Domains: broadcast/media monitoring, applied AI (Whisper, OCR, LLM pipelines, pgvector), embedded firmware and BLE medical devices, real-time and distributed systems
+- Availability: open to freelance / consulting engagements
+- Email: b@rvier.fr
+- Website: https://rvier.fr/
+- GitHub: https://github.com/brvier
+- LinkedIn: https://www.linkedin.com/in/benoithervier/
+
+## Services
+
+- Software architecture and technical leadership for backend, media and AI platforms
+- Design and development of Go and Python services (APIs, workers, orchestrators)
+- Applied AI integration: speech-to-text at scale, OCR fine-tuning, LLM enrichment pipelines, vector search
+- Embedded Linux and firmware development, including regulated medical devices (CE Class IIa)
+- Audits, rescue missions and performance optimization of existing systems
+
+## Blog: selected technical posts
+
+- [Recording broadcast 24/7: the architecture of a capture platform](https://rvier.fr/posts/recording-broadcast-24-7-capture-platform-architecture-EN.html): design of a fault-tolerant TV/radio capture platform
+- [Running Whisper 24/7: transcribing French TV and radio on a fleet of GPUs](https://rvier.fr/posts/running-whisper-24-7-on-broadcast-streams-EN.html): speech-to-text at broadcast scale
+- [Reading the screen: OCR and self-hosted LLMs to enrich broadcast transcripts](https://rvier.fr/posts/ocr-llm-enrichment-broadcast-transcripts-EN.html): OCR + LLM enrichment pipeline
+- [Fine-tuning EasyOCR on your own frames: a practical guide](https://rvier.fr/posts/fine-tuning-easyocr-on-your-own-frames-EN.html)
+- [Vector search in PostgreSQL: deduplicating thousands of speakers with pgvector and HNSW](https://rvier.fr/posts/deduplicating-speakers-with-pgvector-and-hnsw-EN.html)
+- [Encoding house conventions into AI agent skills](https://rvier.fr/posts/encoding-house-conventions-into-ai-agent-skills-EN.html)
+- [Byte-for-byte: reproducing an undocumented legacy binary format in Go](https://rvier.fr/posts/byte-for-byte-reproducing-a-legacy-binary-format-EN.html)
+- [One Go binary, one YAML file, one SQLite database: why I wrote my own monitoring tool](https://rvier.fr/posts/why-i-wrote-my-own-monitoring-tool-EN.html)
+- [Go + PocketBase + Templ + HTMX: a real SaaS without a JavaScript framework](https://rvier.fr/posts/go-pocketbase-templ-htmx-EN.html)
+- [All posts](https://rvier.fr/posts/index.html)
+
+## Selected work
+
+- [Portfolio](https://rvier.fr/#portfolio): 24/7 broadcast capture and media-insights platforms (Go, Python, FFmpeg, Whisper, OCR, audio fingerprinting) for media monitoring; CE Class IIa medical wearable firmware and mobile SDKs (C/C++, BLE); various open-source apps and tools
+
+## Contact
+
+- Email: b@rvier.fr, for freelance missions, consulting or any project inquiry
