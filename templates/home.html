@@ -22,31 +22,72 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Benoît Hervier",
-    "url": "https://rvier.fr/",
-    "image": "https://rvier.fr/images/me.png",
-    "jobTitle": "Lead Developer & Software Architect",
-    "email": "mailto:b@rvier.fr",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Yacast"
-    },
-    "knowsAbout": [
-      "Go",
-      "Python",
-      "C",
-      "C++",
-      "Embedded Linux",
-      "Software Architecture",
-      "Real-time Systems",
-      "Bluetooth Low Energy",
-      "Medical Devices"
-    ],
-    "sameAs": [
-      "https://github.com/brvier",
-      "https://gitlab.com/brvier",
-      "https://www.linkedin.com/in/benoithervier/"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://rvier.fr/#person",
+        "name": "Benoît Hervier",
+        "url": "https://rvier.fr/",
+        "image": "https://rvier.fr/images/me.png",
+        "jobTitle": "Freelance Lead Developer & Software Architect",
+        "email": "mailto:b@rvier.fr",
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Freelance Software Architect and Developer",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "France"
+          }
+        },
+        "knowsLanguage": ["fr", "en"],
+        "knowsAbout": [
+          "Go",
+          "Python",
+          "C",
+          "C++",
+          "Embedded Linux",
+          "Software Architecture",
+          "Real-time Systems",
+          "Distributed Systems",
+          "PostgreSQL",
+          "FFmpeg",
+          "Broadcast Media Monitoring",
+          "Speech-to-Text",
+          "OCR",
+          "LLM Integration",
+          "Vector Search",
+          "Bluetooth Low Energy",
+          "Medical Devices"
+        ],
+        "sameAs": [
+          "https://github.com/brvier",
+          "https://www.malt.fr/profile/benoithervier",
+          "https://www.linkedin.com/in/benoithervier/"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://rvier.fr/#services",
+        "name": "Benoît Hervier, freelance software engineering and architecture",
+        "url": "https://rvier.fr/",
+        "email": "mailto:b@rvier.fr",
+        "founder": { "@id": "https://rvier.fr/#person" },
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "SIRET",
+          "value": "520 039 132 00037"
+        },
+        "areaServed": "France (on-site or remote)",
+        "availableLanguage": ["French", "English"],
+        "description": "Freelance software engineering: architecture and technical leadership, Go and Python backend services, applied AI pipelines (speech-to-text, OCR, LLM enrichment, vector search), embedded Linux and CE-certified medical devices, audits and performance optimization.",
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software architecture and technical leadership" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Go and Python backend development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Applied AI integration: speech-to-text, OCR, LLM pipelines, vector search" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Embedded Linux and medical device firmware" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Audits, rescue missions and performance optimization" } }
+        ]
+      }
     ]
   }
   </script>
@@ -140,7 +181,7 @@
         Me</a>
       <div class="mt-6 space-x-6">
         <a href="https://github.com/brvier" rel="me" class="text-[var(--accent)] hover:underline">GitHub</a>
-        <a href="https://gitlab.com/brvier" rel="me" class="text-[var(--accent)] hover:underline">GitLab</a>
+        <a href="https://www.malt.fr/profile/benoithervier" rel="me" class="text-[var(--accent)] hover:underline">Malt</a>
         <a href="https://www.linkedin.com/in/benoithervier/" rel="me"
           class="text-[var(--accent)] hover:underline">LinkedIn</a>
       </div>
