@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627">
+  <defs>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9c6c3e"/>
+      <stop offset="1" stop-color="#7a4f2a"/>
+    </linearGradient>
+    <linearGradient id="woodlid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#815631"/>
+      <stop offset="1" stop-color="#5d3c20"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="627" fill="#262626"/>
+  <rect x="8" y="8" width="1184" height="611" rx="16" fill="none" stroke="#3d3d3d" stroke-width="2"/>
+
+  <text x="500" y="70" text-anchor="middle" font-family="Liberation Sans, Noto Sans, sans-serif" font-size="42" font-weight="bold" fill="#f0a020">Android se referme</text>
+  <text x="500" y="108" text-anchor="middle" font-family="Liberation Sans, Noto Sans, sans-serif" font-size="19" fill="#a8a8a8">chaque mesure semble anodine, ensemble elles scellent le cercueil</text>
+
+  <!-- coffin -->
+  <polygon points="120,285 205,228 880,300 880,420 205,492 120,435"
+           fill="url(#wood)" stroke="#4e3218" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="136,297 213,244 866,312 866,408 213,476 136,423"
+           fill="#33241a" stroke="#4e3218" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- droid, laid out inside -->
+  <g fill="#a4c639">
+    <path d="M 272,302 A 58 58 0 0 0 272,418 Z"/>
+    <path d="M 344,308 H 556 A 40 40 0 0 1 596,348 V 372 A 40 40 0 0 1 556,412 H 344 Z"/>
+    <rect x="368" y="266" width="152" height="32" rx="16"/>
+    <rect x="368" y="422" width="152" height="32" rx="16"/>
+    <rect x="604" y="318" width="76" height="30" rx="15"/>
+    <rect x="604" y="372" width="76" height="30" rx="15"/>
+    <g stroke="#a4c639" stroke-width="11" stroke-linecap="round">
+      <line x1="239" y1="322" x2="208" y2="290"/>
+      <line x1="239" y1="398" x2="208" y2="430"/>
+    </g>
+  </g>
+  <g fill="#f2f2f2">
+    <circle cx="252" cy="340" r="7"/>
+    <circle cx="252" cy="380" r="7"/>
+  </g>
+
+  <!-- lid sliding over the feet -->
+  <g transform="rotate(-1 768 360)">
+    <polygon points="650,275 888,301 888,419 650,445" fill="url(#woodlid)" stroke="#43290f" stroke-width="4" stroke-linejoin="round"/>
+    <g stroke="#4a2f16" stroke-width="2" opacity="0.65">
+      <line x1="668" y1="310" x2="878" y2="330"/>
+      <line x1="668" y1="360" x2="878" y2="360"/>
+      <line x1="668" y1="410" x2="878" y2="390"/>
+    </g>
+  </g>
+
+  <!-- nails -->
+  <g>
+    <g transform="translate(700,294)"><ellipse rx="11" ry="5.5" fill="#9aa0a6" stroke="#5a6065" stroke-width="2"/><ellipse cx="-3" cy="-1.5" rx="4" ry="2" fill="#d5d9dc"/></g>
+    <g transform="translate(770,428)"><ellipse rx="11" ry="5.5" fill="#9aa0a6" stroke="#5a6065" stroke-width="2"/><ellipse cx="-3" cy="-1.5" rx="4" ry="2" fill="#d5d9dc"/></g>
+    <g transform="translate(330,237)"><ellipse rx="11" ry="5.5" fill="#9aa0a6" stroke="#5a6065" stroke-width="2"/><ellipse cx="-3" cy="-1.5" rx="4" ry="2" fill="#d5d9dc"/></g>
+    <g transform="translate(430,464)"><ellipse rx="11" ry="5.5" fill="#9aa0a6" stroke="#5a6065" stroke-width="2"/><ellipse cx="-3" cy="-1.5" rx="4" ry="2" fill="#d5d9dc"/></g>
+  </g>
+
+  <!-- hammer -->
+  <g transform="translate(706,224) rotate(-16) scale(0.88)">
+    <rect x="26" y="-13" width="200" height="26" rx="13" fill="#9a6a3a" stroke="#5f3f1e" stroke-width="3"/>
+    <path d="M -30,-44 C -42,-70 -30,-94 -4,-104 L 10,-87 C -10,-78 -20,-64 -16,-44 Z"
+          fill="#7a828c" stroke="#464d55" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="-34" y="-56" width="64" height="110" rx="9" fill="#7a828c" stroke="#464d55" stroke-width="3"/>
+    <rect x="-41" y="34" width="78" height="22" rx="6" fill="#9aa3ad" stroke="#464d55" stroke-width="3"/>
+  </g>
+  <g stroke="#6b7280" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.6">
+    <path d="M 600,204 A 56 56 0 0 1 630,176"/>
+    <path d="M 586,234 A 78 78 0 0 1 630,196"/>
+  </g>
+
+  <!-- impact sparks -->
+  <g stroke="#f0a020" stroke-width="4" stroke-linecap="round">
+    <line x1="676" y1="286" x2="656" y2="276"/>
+    <line x1="724" y1="286" x2="744" y2="276"/>
+    <line x1="672" y1="302" x2="654" y2="308"/>
+    <line x1="728" y1="302" x2="746" y2="308"/>
+  </g>
+
+  <!-- legend -->
+  <text x="940" y="232" font-family="Liberation Sans, Noto Sans, sans-serif" font-size="24" font-weight="bold" fill="#f0a020">les 4 clous</text>
+  <g font-family="Liberation Sans, Noto Sans, sans-serif" font-size="18" fill="#d8d8d8">
+    <g transform="translate(946,278)"><ellipse rx="9" ry="4.5" fill="#9aa0a6" stroke="#5a6065" stroke-width="2"/></g>
+    <text x="968" y="284">12 testeurs, 14 jours</text>
+    <g transform="translate(946,334)"><ellipse rx="9" ry="4.5" fill="#9aa0a6" stroke="#5a6065" stroke-width="2"/></g>
+    <text x="968" y="340">vérification d'identité</text>
+    <g transform="translate(946,390)"><ellipse rx="9" ry="4.5" fill="#9aa0a6" stroke="#5a6065" stroke-width="2"/></g>
+    <text x="968" y="396">sideloading bridé</text>
+    <g transform="translate(946,446)"><ellipse rx="9" ry="4.5" fill="#9aa0a6" stroke="#5a6065" stroke-width="2"/></g>
+    <text x="968" y="452">l'auteur, pas le code</text>
+  </g>
+
+  <text x="60" y="576" font-family="Liberation Sans, Noto Sans, sans-serif" font-size="19" fill="#8f8f8f">Seul Google détiendra les clefs.</text>
+  <text x="1160" y="592" text-anchor="end" font-family="JetBrainsMono NF, Liberation Mono, monospace" font-size="18" fill="#8a8a8a">rvier.fr</text>
+</svg>
