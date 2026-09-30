@@ -62,7 +62,7 @@ Create `content/projects/my-project.md`:
 ```markdown
 ---
 title: My Project (Company)
-section: professional   # professional | opensource | unmaintained
+section: professional   # professional | saas | opensource | unmaintained
 weight: 15              # sort order within the section, ascending
 image: ./images/my-project.svg
 alt: My Project, short alt text

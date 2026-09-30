@@ -116,6 +116,7 @@ type Section struct {
 
 var sections = []Section{
 	{Key: "professional", Title: "Professional Portfolio", ExtraGridClass: "mb-16"},
+	{Key: "saas", Title: "SaaS Projects", ExtraGridClass: "mb-16"},
 	{Key: "opensource", Title: "Open Source Projects", ExtraGridClass: "mb-16"},
 	{Key: "unmaintained", Title: "Unmaintained Open Source Applications", ExtraHeadingClass: "mt-12"},
 }
