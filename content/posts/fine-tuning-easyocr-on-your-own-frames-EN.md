@@ -2,6 +2,7 @@
 title: 'Fine-tuning EasyOCR on your own frames: a practical guide'
 date: '2026-08-16'
 lang: en
+featured: true
 description: 'The complete recipe we used to fine-tune EasyOCR''s recognition network on TV overlay crops: auto-labelling with the stock model, a tiny Tkinter correction UI, the VGG+BiLSTM+CTC training configuration starting from latin_g2, and deployment with recog_network.'
 ogDescription: 'Auto-label with the stock model, correct by hand, train VGG+BiLSTM+CTC from latin_g2, deploy with recog_network: the full EasyOCR fine-tuning recipe.'
 keywords: EasyOCR, OCR, fine-tuning, PyTorch, CTC, dataset, Python, computer vision

@@ -2,6 +2,7 @@
 title: 'Encoding house conventions into AI agent skills'
 date: '2026-08-15'
 lang: en
+featured: true
 description: 'How I make coding agents produce code that looks like ours: per-repo AGENTS.md files for project facts, and reusable skills that capture house conventions, from a French conventional-commit workflow to a 200-line skill that scaffolds a complete Go microservice.'
 ogDescription: 'Per-repo AGENTS.md for project facts, reusable skills for house conventions: making coding agents write code that looks like ours.'
 keywords: AI agents, Claude Code, skills, AGENTS.md, conventions, Go, developer experience, LLM

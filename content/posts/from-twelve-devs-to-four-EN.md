@@ -2,6 +2,7 @@
 title: 'From twelve devs to four: the LLM quality drop that never came'
 date: '2026-08-27'
 lang: en
+featured: true
 description: 'Everyone predicted AI-generated code would tank software quality. From inside a team that went from twelve devs to four, the honest assessment: for most of what we build, the generated code is as good or better, and that is exactly why it will spread everywhere.'
 ogDescription: 'A team that went from twelve devs to four. Quality held. That is the problem, and why AI code will spread everywhere.'
 keywords: LLM, AI, software quality, code generation, team size, developer jobs, productivity

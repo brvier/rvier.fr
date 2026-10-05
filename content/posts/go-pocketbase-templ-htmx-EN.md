@@ -2,6 +2,7 @@
 title: 'Go + PocketBase + Templ + HTMX: a real SaaS without a JavaScript framework'
 date: '2026-06-27'
 lang: en
+featured: true
 description: 'Experience report: building a full club-management SaaS with Go, PocketBase as an embedded backend, Templ for typed HTML and HTMX for interactivity, 671 hx- attributes, no JavaScript framework, one language, one binary.'
 ogDescription: 'Building a full CRUD SaaS with the Go hypermedia stack: PocketBase, Templ, HTMX. What works, what hurts.'
 keywords: Go, Golang, HTMX, PocketBase, Templ, hypermedia, SaaS, Tailwind, daisyUI

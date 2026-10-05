@@ -2,6 +2,7 @@
 title: 'Reading the screen: OCR and self-hosted LLMs to enrich broadcast transcripts'
 date: '2026-07-26'
 lang: en
+featured: true
 description: 'How we extract on-screen text from TV frames (per-channel boxes, live-content gating, a recognizer fine-tuned on our own frames, spellchecker-adjusted confidence) and turn raw transcripts into titles, entities and classifications with LLM workers built as strict-contract pipeline stages.'
 ogDescription: 'Per-channel OCR boxes, live-content gating, a fine-tuned recognizer, a small self-hosted correction model, and LLM enrichment workers with strict JSON contracts.'
 keywords: OCR, EasyOCR, OpenCV, LLM, self-hosted, fine-tuning, Ollama, structured output, broadcast, Python

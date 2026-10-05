@@ -2,6 +2,7 @@
 title: 'tmpfs and /dev/shm: the ramdisk, the forgotten optimization'
 date: '2026-06-19'
 lang: en
+featured: true
 description: 'A RAM-backed filesystem ships with every Linux machine and almost nobody uses it. Three real production uses of tmpfs and /dev/shm: temp files for third-party binaries, in-RAM indexes shared between processes, and monitoring via statfs.'
 ogDescription: Three real production uses of tmpfs and /dev/shm, and the pitfalls to know about.
 keywords: Linux, tmpfs, /dev/shm, ramdisk, performance, Go

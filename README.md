@@ -10,6 +10,8 @@ content/
   projects/<name>.md   portfolio cards for the homepage
 templates/
   post.html            blog post page
+  post.md              Markdown version of a post (posts/<slug>.html.md)
+  llms.txt             public/llms.txt, filled with posts and projects
   blogindex.html       posts/index.html
   home.html            homepage (portfolio sections are templated)
   partials.html        shared "Let's Connect" + footer blocks
@@ -46,6 +48,7 @@ summary: Shorter text for the blog index card (defaults to description).
 ogDescription: Shorter text for og:description (defaults to description).
 image: https://rvier.fr/images/something.png   # og:image + JSON-LD image
 keywords: Go, Golang, something                # JSON-LD keywords
+featured: true          # listed under "Blog" in llms.txt (others go under "Optional")
 ---
 
 Markdown body. Raw HTML is allowed, e.g. sized images:
@@ -53,7 +56,8 @@ Markdown body. Raw HTML is allowed, e.g. sized images:
 <img src="../images/foo.png" alt="Foo" loading="lazy" width="360">
 ```
 
-Then `make build`. The post page, blog index, and sitemap are all regenerated.
+Then `make build`. The post page, its Markdown version, blog index, sitemap
+and llms.txt are all regenerated.
 
 ## Adding a portfolio project
 
@@ -72,7 +76,7 @@ link: https://github.com/brvier/myproject
 linkText: View Project  # linkText without link renders a dead link ("Archive unavailable")
 ---
 
-One-paragraph description shown on the card.
+One-paragraph description shown on the card and in llms.txt.
 ```
 
 ## Notes

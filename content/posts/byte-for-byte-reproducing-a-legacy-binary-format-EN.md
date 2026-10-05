@@ -2,6 +2,7 @@
 title: 'Byte-for-byte: reproducing an undocumented legacy binary format in Go'
 date: '2026-06-05'
 lang: en
+featured: true
 description: 'Rewriting a legacy media pipeline in Go meant reproducing an undocumented binary sidecar format byte-for-byte: reverse-engineering floor(min(mean(|s16|)/256, 127)) per 10 ms window, a fractional carry accumulator, and the unit tests that prove conformance.'
 ogDescription: Reverse-engineering an undocumented audio profile format, including its fractional carry bug-for-bug, and proving conformance with byte-identical tests.
 keywords: Go, Golang, reverse engineering, legacy, binary format, migration, ffmpeg, PCM

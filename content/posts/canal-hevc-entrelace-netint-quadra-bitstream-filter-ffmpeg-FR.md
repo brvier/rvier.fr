@@ -2,6 +2,7 @@
 title: 'Les flux des diffuseurs sont parfois vraiment très crades'
 date: '2026-09-12'
 lang: fr
+featured: true
 description: 'Une chaîne Canal+ reçue par satellite en HEVC 1080i faisait tourner nos encodeurs en décodage logiciel, ni NVDEC ni NetInt Quadra n''acceptant le HEVC entrelacé. En regardant le flux de près, les images sont progressives : seuls trois drapeaux disent le contraire. Un bitstream filter ffmpeg de 450 lignes les efface, la carte décode, et sauve quatre fois plus d''images que le CPU sur ce flux corrompu à 12 %.'
 ogDescription: 'Du HEVC 1080i que le NetInt Quadra refusait : les images sont progressives, seuls trois drapeaux mentent. Un bitstream filter ffmpeg les efface.'
 keywords: ffmpeg, HEVC, Canal+, bitstream filter, NetInt, Quadra, entrelacé, field-coded, 1080i, MPEG-TS, DVB, satellite, broadcast, captation, Go

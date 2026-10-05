@@ -1,0 +1,80 @@
+# Benoît Hervier, Freelance Lead Developer & Software Architect
+
+> Benoît Hervier is a freelance lead developer and software architect based near Paris, France, with 20+ years of experience in Go (Golang), Python and C/C++ on Linux. He designs and builds reliable systems: 24/7 broadcast capture and AI media analytics platforms (speech-to-text, OCR, LLM enrichment, audio fingerprinting, vector search), CE-certified Class IIa embedded medical devices, scalable backend services and SaaS. Currently available part-time for freelance missions, consulting and audits. Contact: b@rvier.fr or Malt (https://www.malt.fr/profile/benoithervier).
+
+En français : Benoît Hervier est développeur Go et Python freelance, lead developer et architecte logiciel indépendant, basé à Crépy-en-Valois (Oise), au nord-est de Paris, avec plus de 20 ans d'expérience. Spécialités : plateformes de captation broadcast 24/7 (TV, radio, TNT, DVB, FFmpeg), IA appliquée aux médias (transcription Whisper, OCR, enrichissement par LLM auto-hébergés, recherche vectorielle pgvector), firmware embarqué et dispositifs médicaux certifiés CE classe IIa, services backend et SaaS en Go. Disponible à temps partiel pour des missions en régie ou au forfait, du conseil, des audits ou la reprise de projets en difficulté, en télétravail ou sur site en Île-de-France. TJM indicatif : 600 à 750 € HT selon la mission. Contact : b@rvier.fr ou Malt.
+
+Key facts:
+
+- Name: Benoît Hervier
+- Role: Freelance Lead Developer & Software Architect
+- Experience: 20+ years
+- Location: Crépy-en-Valois (Oise, Hauts-de-France), about 60 km north-east of Paris
+- Work mode: remote across France, on-site possible in Paris and Île-de-France
+- Availability: part-time, a few days per week alongside an ongoing engagement
+- Engagements: time and materials (régie) or fixed price (forfait), consulting, audits
+- Daily rate: 600 to 750 EUR excl. VAT, depending on the mission
+- French company number (SIRET): 520 039 132 00037
+- Languages: French (native), English (professional)
+- Core stack: Go, Python, C, C++, Embedded Linux, PostgreSQL, FFmpeg
+- Domains: broadcast and media monitoring, applied AI (Whisper, OCR, LLM pipelines, pgvector), embedded firmware and BLE medical devices, real-time and distributed systems
+- Industries: media and broadcast, medtech, defense (DGA), mining and explosives, finance, real estate
+- Email: b@rvier.fr
+- Malt: https://www.malt.fr/profile/benoithervier
+- Website: https://rvier.fr/
+- GitHub: https://github.com/brvier
+- LinkedIn: https://www.linkedin.com/in/benoithervier/
+
+Services:
+
+- Software architecture and technical leadership for backend, media and AI platforms
+- Go and Python services: APIs, workers, orchestrators, distributed systems
+- Applied AI integration: speech-to-text at scale (Whisper, diarization), OCR fine-tuning, self-hosted LLM pipelines, vector search (pgvector)
+- Audio and video pipelines: FFmpeg, broadcast capture (TNT, DVB, radio, web streams), hardware decoding
+- Embedded Linux and firmware development (nRF52, BLE), including regulated medical devices (CE Class IIa)
+- SaaS development in Go with Templ and HTMX, without a JavaScript framework
+- Setting up AI coding agents for a team: AGENTS.md files, skills, house conventions
+- Audits, rescue missions and performance optimization of existing systems
+
+Professional work (selected clients and projects):
+
+{{range index .Projects "professional" -}}
+- {{oneline .Title}}: {{oneline .Text}}{{if .Stack}} Stack: {{.Stack}}.{{end}}
+{{end}}
+Blog links below point to the Markdown version of each post; drop the trailing .md for the HTML page.
+
+## SaaS products
+
+{{range index .Projects "saas" -}}
+- [{{oneline .Title}}]({{.Link}}): {{oneline .Text}}
+{{end}}
+## Open source
+
+{{range index .Projects "opensource" -}}
+- [{{oneline .Title}}]({{.Link}}): {{oneline .Text}}
+{{end}}
+## Blog: selected technical posts
+
+{{range .Featured -}}
+- [{{oneline .Title}}]({{.MarkdownURL}}){{if eq .Lang "fr"}} (in French){{end}}: {{oneline .Description}}
+{{end -}}
+- [All posts](https://rvier.fr/posts/index.html)
+
+## Contact
+
+- [Email](mailto:b@rvier.fr): freelance missions, consulting or any project inquiry
+- [Malt](https://www.malt.fr/profile/benoithervier): freelance profile, reviews and contracting
+- [LinkedIn](https://www.linkedin.com/in/benoithervier/)
+
+## Optional
+
+{{range .Other -}}
+- [{{oneline .Title}}]({{.MarkdownURL}}){{if eq .Lang "fr"}} (in French){{end}}: {{oneline .Description}}
+{{end -}}
+{{range index .Projects "unmaintained" -}}
+{{if .Link -}}
+- [{{oneline .Title}}]({{.Link}}): {{oneline .Text}} (unmaintained app)
+{{else -}}
+- {{oneline .Title}}: {{oneline .Text}} (unmaintained app, archive unavailable)
+{{end -}}
+{{end -}}

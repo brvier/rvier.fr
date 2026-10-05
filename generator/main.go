@@ -1,8 +1,9 @@
 // Command generator builds the rvier.fr website into public/:
 //
 //	static/*              -> public/* (copied verbatim: images, css, robots.txt, redirects)
-//	content/posts/*.md    -> public/posts/<slug>.html, public/posts/index.html, public/sitemap.xml
+//	content/posts/*.md    -> public/posts/<slug>.html, public/posts/<slug>.html.md, public/posts/index.html, public/sitemap.xml
 //	content/projects/*.md -> public/index.html (portfolio sections of templates/home.html)
+//	posts + projects      -> public/llms.txt (templates/llms.txt)
 //
 // Run from the repository root: go run ./generator
 package main
@@ -12,11 +13,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
+	"io"
 	"log"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+	texttemplate "text/template"
 
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/renderer/html"
@@ -42,12 +45,15 @@ type Post struct {
 	Image         string `yaml:"image"`
 	Keywords      string `yaml:"keywords"`
 	Summary       string `yaml:"summary"`
+	Featured      bool   `yaml:"featured"`
 
-	Slug string        `yaml:"-"`
-	Body template.HTML `yaml:"-"`
+	Slug   string        `yaml:"-"`
+	Body   template.HTML `yaml:"-"`
+	Source string        `yaml:"-"` // markdown body, for the .html.md version
 }
 
 func (p Post) URL() string            { return "https://rvier.fr/posts/" + p.Slug + ".html" }
+func (p Post) MarkdownURL() string    { return p.URL() + ".md" }
 func (p Post) LangTag() string        { return strings.ToUpper(p.Lang) }
 func (p Post) DisplayDate() string    { return displayDate(p.Date, p.Lang) }
 func (p Post) DisplayUpdated() string { return displayDate(p.Updated, p.Lang) }
@@ -104,6 +110,7 @@ type Project struct {
 	LinkText string `yaml:"linkText"`
 
 	Body template.HTML `yaml:"-"`
+	Text string        `yaml:"-"` // markdown body, for llms.txt
 }
 
 type Section struct {
@@ -199,6 +206,7 @@ func loadPosts() ([]Post, error) {
 			p.Summary = p.Description
 		}
 		p.Slug = strings.TrimSuffix(filepath.Base(f), ".md")
+		p.Source = strings.TrimSpace(string(body))
 		if p.Body, err = render(body); err != nil {
 			return nil, fmt.Errorf("%s: %w", f, err)
 		}
@@ -237,6 +245,7 @@ func loadSections() ([]Section, error) {
 			return nil, fmt.Errorf("%s: %w", f, err)
 		}
 		p.Body = template.HTML(strings.ReplaceAll(string(html), "<p>", `<p class="mb-4">`))
+		p.Text = strings.TrimSpace(string(body))
 		if _, ok := byKey[p.Section]; !ok {
 			known := false
 			for _, s := range sections {
@@ -303,7 +312,19 @@ func copyStatic() error {
 	})
 }
 
-func renderToFile(t *template.Template, path string, data any) error {
+// textFuncs serve the plain-text templates (llms.txt, post.md).
+var textFuncs = texttemplate.FuncMap{
+	// oneline collapses newlines and runs of spaces, so multi-line front
+	// matter values and paragraphs fit on a single markdown list item.
+	"oneline": func(s string) string { return strings.Join(strings.Fields(s), " ") },
+}
+
+// executor is satisfied by both html/template and text/template.
+type executor interface {
+	Execute(w io.Writer, data any) error
+}
+
+func renderToFile(t executor, path string, data any) error {
 	var buf bytes.Buffer
 	if err := t.Execute(&buf, data); err != nil {
 		return fmt.Errorf("%s: %w", path, err)
@@ -324,6 +345,8 @@ func main() {
 	postTpl := template.Must(template.ParseFiles("templates/post.html", "templates/partials.html"))
 	indexTpl := template.Must(template.ParseFiles("templates/blogindex.html", "templates/partials.html"))
 	homeTpl := template.Must(template.ParseFiles("templates/home.html"))
+	postMDTpl := texttemplate.Must(texttemplate.New("post.md").Funcs(textFuncs).ParseFiles("templates/post.md"))
+	llmsTpl := texttemplate.Must(texttemplate.New("llms.txt").Funcs(textFuncs).ParseFiles("templates/llms.txt"))
 
 	if err := os.RemoveAll(outDir); err != nil {
 		log.Fatal(err)
@@ -339,6 +362,9 @@ func main() {
 		if err := renderToFile(postTpl, filepath.Join(outDir, "posts", p.Slug+".html"), p); err != nil {
 			log.Fatal(err)
 		}
+		if err := renderToFile(postMDTpl, filepath.Join(outDir, "posts", p.Slug+".html.md"), p); err != nil {
+			log.Fatal(err)
+		}
 	}
 	if err := renderToFile(indexTpl, filepath.Join(outDir, "posts", "index.html"), map[string]any{"Posts": posts}); err != nil {
 		log.Fatal(err)
@@ -349,7 +375,25 @@ func main() {
 	if err := writeSitemap(posts); err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("generated %d posts, blog index, homepage (%d projects), sitemap",
+
+	// llms.txt: featured posts in the main Blog section, the rest under Optional.
+	var featured, other []Post
+	for _, p := range posts {
+		if p.Featured {
+			featured = append(featured, p)
+		} else {
+			other = append(other, p)
+		}
+	}
+	projects := map[string][]Project{}
+	for _, s := range secs {
+		projects[s.Key] = s.Projects
+	}
+	if err := renderToFile(llmsTpl, filepath.Join(outDir, "llms.txt"),
+		map[string]any{"Featured": featured, "Other": other, "Projects": projects}); err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("generated %d posts, blog index, homepage (%d projects), sitemap, llms.txt",
 		len(posts), func() (n int) {
 			for _, s := range secs {
 				n += len(s.Projects)

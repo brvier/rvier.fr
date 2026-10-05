@@ -2,6 +2,7 @@
 title: 'Running Whisper 24/7: transcribing French TV and radio on a fleet of GPUs'
 date: '2026-07-24'
 lang: en
+featured: true
 description: 'Experience report from a production speech-to-text pipeline: WhisperX and pyannote diarization on multi-GPU workers, dynamic GPU rebalancing, crash-only CUDA error handling, and audio that is never as clean as the demo.'
 ogDescription: 'WhisperX and pyannote diarization on multi-GPU workers: dynamic GPU rebalancing, crash-only CUDA error handling, and broadcast audio that is never clean.'
 keywords: Whisper, WhisperX, speech-to-text, speaker diarization, pyannote, CUDA, GPU, ffmpeg, Python

@@ -2,6 +2,7 @@
 title: 'Broadcaster streams are sometimes really dirty'
 date: '2026-09-12'
 lang: en
+featured: true
 description: 'A Canal+ satellite channel in HEVC 1080i kept our encoders in software decoding, since neither NVDEC nor the NetInt Quadra accept interlaced HEVC. Looking closely at the stream, the pictures are progressive: only three flags say otherwise. A 450-line ffmpeg bitstream filter erases them, the card decodes, and salvages four times more pictures than the CPU on this 12% corrupted feed.'
 ogDescription: 'HEVC 1080i the NetInt Quadra refused: the pictures are progressive, only three flags lie. An ffmpeg bitstream filter erases them.'
 keywords: ffmpeg, HEVC, Canal+, bitstream filter, NetInt, Quadra, interlaced, field-coded, 1080i, MPEG-TS, DVB, satellite, broadcast, capture, Go

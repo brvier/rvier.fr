@@ -2,6 +2,7 @@
 title: 'Recording broadcast 24/7: the architecture of a capture platform'
 date: '2026-08-14'
 lang: en
+featured: true
 description: 'The architecture behind years of continuous TV and radio capture: time-addressed immutable chunks, multicast as a decoupling layer, a control plane that can die without stopping the recording, tiered storage, and a repair layer that assumes nothing is ever perfect.'
 ogDescription: 'Time-addressed immutable chunks, multicast decoupling, a control plane that can die safely, tiered storage, and a repair layer that assumes imperfection.'
 keywords: broadcast, capture, DVB, ffmpeg, Go, multicast, MPEG-TS, Ceph, architecture, SRT

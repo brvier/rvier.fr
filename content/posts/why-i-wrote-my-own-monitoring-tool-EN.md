@@ -2,6 +2,7 @@
 title: 'One Go binary, one YAML file, one SQLite database: why I wrote my own monitoring tool'
 date: '2026-07-09'
 lang: en
+featured: true
 description: 'Why I wrote Gjallar, a KISS monitoring service in ~3,400 lines of Go: zero CGO thanks to pure-Go drivers (pgx, go-ora, pro-bing), a lock-free alert state machine, and SIGHUP hot-reload with validation.'
 ogDescription: 'Gjallar: a KISS monitoring service in ~3,400 lines of Go. Zero CGO, a lock-free alert state machine, SIGHUP hot-reload with validation.'
 keywords: Go, Golang, monitoring, SQLite, CGO, pgx, go-ora, self-hosted
