@@ -10,7 +10,7 @@ image: https://rvier.fr/images/hyperion-capture-architecture.png
 summary: 'The capstone of the broadcast series: how the capture platform records TV and radio around the clock, with time-addressed chunks, multicast decoupling, tiered storage and a repair layer.'
 ---
 
-Every post in this series so far consumed the same input: [Whisper transcription](running-whisper-24-7-on-broadcast-streams-EN.html), [on-screen OCR](ocr-llm-enrichment-broadcast-transcripts-EN.html), [speaker deduplication](deduplicating-speakers-with-pgvector-and-hnsw-EN.html), even the [byte-for-byte audio profile format](byte-for-byte-reproducing-a-legacy-binary-format-EN.html). This post is about where that input comes from: the platform that records French TV and radio channels continuously, from terrestrial DVB multiplexes, FM antennas, satellite, web radio streams and IP sources, and has been doing so for years.
+Every post in this series so far consumed the same input: [Whisper transcription](running-whisper-24-7-on-broadcast-streams-EN), [on-screen OCR](ocr-llm-enrichment-broadcast-transcripts-EN), [speaker deduplication](deduplicating-speakers-with-pgvector-and-hnsw-EN), even the [byte-for-byte audio profile format](byte-for-byte-reproducing-a-legacy-binary-format-EN). This post is about where that input comes from: the platform that records French TV and radio channels continuously, from terrestrial DVB multiplexes, FM antennas, satellite, web radio streams and IP sources, and has been doing so for years.
 
 <img src="../images/hyperion-capture-architecture.png" alt="Capture platform architecture: tuners, multicast, encoders, storage servers, tiered storage, control plane" loading="lazy" width="1200" height="627">
 
@@ -63,7 +63,7 @@ Behind the storage servers, storage is tiered: a hot Ceph cluster for the recent
 
 Chunks *can* be migrated between tiers, but deliberately by hand: a CLI tool moves a channel and time range when there is a reason to (freeing a tier, consolidating an archive), rather than an automatic mover shuffling data in the background. And that is also what made the storage generations survivable: the pre-Ceph archives never had to be migrated on a deadline, they just stayed behind the same API while new writes went to Ceph, and get moved range by range when it is actually worth it.
 
-Immutability is what keeps this boring. A chunk is written once and never modified, so replication, migration and caching never worry about coherence: the [tmpfs tricks from an earlier post](tmpfs-dev-shm-the-forgotten-ramdisk-optimization-EN.html) work precisely because a cached chunk can never be stale.
+Immutability is what keeps this boring. A chunk is written once and never modified, so replication, migration and caching never worry about coherence: the [tmpfs tricks from an earlier post](tmpfs-dev-shm-the-forgotten-ramdisk-optimization-EN) work precisely because a cached chunk can never be stale.
 
 ## Packing chunks into blobs
 
@@ -84,7 +84,7 @@ The uncomfortable truth of continuous capture is that something is always slight
 
 - checkers walk the timeline and report discontinuities per channel, so a hole is detected in minutes, not discovered by a customer months later;
 - a recovery tool re-imports missing ranges from secondary captures and backup receivers, and only fills actual holes unless explicitly forced;
-- consumers degrade instead of stopping: the STT workers [inject silence for a missing chunk](running-whisper-24-7-on-broadcast-streams-EN.html) so the transcript timeline stays honest.
+- consumers degrade instead of stopping: the STT workers [inject silence for a missing chunk](running-whisper-24-7-on-broadcast-streams-EN) so the transcript timeline stays honest.
 
 Detection, repair, and graceful degradation: three separate mechanisms, because no single one of them is reliable enough alone.
 

@@ -2,7 +2,7 @@
 title: Gjallar
 section: opensource
 weight: 197
-image: ./images/gjallar.png
+image: ./images/gjallar.webp
 alt: Gjallar, a KISS monitoring service in Go
 link: https://github.com/brvier/Gjallar
 linkText: View Project

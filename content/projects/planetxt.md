@@ -2,7 +2,7 @@
 title: PlaneTxt
 section: opensource
 weight: 210
-image: ./images/planova-wide.png
+image: ./images/planova-wide.webp
 alt: PlaneTxt, manage your life in plain text
 link: https://github.com/brvier/PlaneTxt
 linkText: View Project

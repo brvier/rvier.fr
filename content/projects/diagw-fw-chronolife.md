@@ -2,7 +2,7 @@
 title: DiagW-FW (Chronolife)
 section: professional
 weight: 130
-image: ./images/diagw-test.png
+image: ./images/diagw-test.webp
 alt: DiagW-FW
 stack: C++ / nRF52 / Nordic SDK
 ---

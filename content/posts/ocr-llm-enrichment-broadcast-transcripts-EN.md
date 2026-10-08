@@ -10,7 +10,7 @@ image: https://rvier.fr/images/ocr-llm-broadcast.png
 summary: 'Extracting on-screen text from TV frames with per-channel boxes, live-content gating and spellchecker-adjusted confidence, then enriching transcripts with LLM workers treated as just another flaky pipeline stage.'
 ---
 
-Two earlier posts covered [transcribing broadcast audio with Whisper](running-whisper-24-7-on-broadcast-streams-EN.html) and [deduplicating speaker voices in PostgreSQL](deduplicating-speakers-with-pgvector-and-hnsw-EN.html). This one is about the two layers on top: reading what is written *on the screen*, and using LLMs to turn a raw transcript into something a human can search: titles, keywords, people, places, organizations, topic classification.
+Two earlier posts covered [transcribing broadcast audio with Whisper](running-whisper-24-7-on-broadcast-streams-EN) and [deduplicating speaker voices in PostgreSQL](deduplicating-speakers-with-pgvector-and-hnsw-EN). This one is about the two layers on top: reading what is written *on the screen*, and using LLMs to turn a raw transcript into something a human can search: titles, keywords, people, places, organizations, topic classification.
 
 <img src="../images/ocr-llm-broadcast.png" alt="OCR boxes on a TV frame feeding an LLM enrichment stage" loading="lazy" width="1200" height="627">
 

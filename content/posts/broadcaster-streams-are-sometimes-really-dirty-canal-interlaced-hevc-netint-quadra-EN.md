@@ -2,6 +2,7 @@
 title: 'Broadcaster streams are sometimes really dirty'
 date: '2026-09-12'
 lang: en
+translation: canal-hevc-entrelace-netint-quadra-bitstream-filter-ffmpeg-FR
 featured: true
 description: 'A Canal+ satellite channel in HEVC 1080i kept our encoders in software decoding, since neither NVDEC nor the NetInt Quadra accept interlaced HEVC. Looking closely at the stream, the pictures are progressive: only three flags say otherwise. A 450-line ffmpeg bitstream filter erases them, the card decodes, and salvages four times more pictures than the CPU on this 12% corrupted feed.'
 ogDescription: 'HEVC 1080i the NetInt Quadra refused: the pictures are progressive, only three flags lie. An ffmpeg bitstream filter erases them.'
@@ -9,7 +10,7 @@ keywords: ffmpeg, HEVC, Canal+, bitstream filter, NetInt, Quadra, interlaced, fi
 summary: 'How a field-coded HEVC 1080i Canal+ feed, refused by the NetInt Quadra decoder, made it to hardware decoding thanks to an ffmpeg bitstream filter that erases the interlace signalling. With the code, the ffmpeg command line, the results on a corrupted feed, and NetInt''s response.'
 ---
 
-In the [capture platform](recording-broadcast-24-7-capture-platform-architecture-EN.html), there is one feed I ended up calling "the crappy Canal feed". It is a channel from the Canal+ satellite bouquet, "Barker à la une", in HEVC 1080i:
+In the [capture platform](recording-broadcast-24-7-capture-platform-architecture-EN), there is one feed I ended up calling "the crappy Canal feed". It is a channel from the Canal+ satellite bouquet, "Barker à la une", in HEVC 1080i:
 
 - an interlacing that none of our hardware decoders accept
 - 12% corrupted packets

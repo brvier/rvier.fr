@@ -2,6 +2,7 @@
 title: 'Ma vie en texte brut, quatre ans après : Planova et un fichier Markdown par jour'
 date: '2026-09-13'
 lang: fr
+translation: my-life-in-plain-text-using-planova-EN
 description: 'Quatre ans après ma première organisation en texte brut, j''ai remplacé todo.txt et mes formats maison par un seul fichier Markdown par jour : Planova sur Android et Linux, une CLI en Go, vim et Syncthing.'
 ogDescription: 'Remplacer todo.txt et les formats maison par un fichier Markdown par jour : Planova sur Android et Linux, une CLI en Go, vim et Syncthing.'
 image: https://rvier.fr/images/planova_screenshot_main.png
@@ -9,7 +10,7 @@ keywords: texte brut, plain text, Markdown, PIM, todo, agenda, journal, notes, P
 summary: 'Version française du billet sur Planova : pourquoi j''ai abandonné todo.txt et mes formats maison pour un fichier Markdown par jour, le refill du matin, l''application Flutter, la CLI en Go et la synchronisation par Syncthing.'
 ---
 
-En 2022 j'écrivais [My life in plain text](my-life-in-plain-text-EN.html) : les tâches dans un `todo.txt`, les événements dans un format maison `agendatxt`, les dépenses dans un autre format maison, les notes en Markdown, et une application Android de démonstration, MOrg, pour tenir tout ça ensemble sur mobile. Presque quatre ans plus tard, tout est toujours en texte brut, mais presque tout le reste a changé. Le changement principal tient en une phrase : **j'ai arrêté de découper ma vie par type de données, et je la découpe par jour.**
+En 2022 j'écrivais [My life in plain text](my-life-in-plain-text-EN) : les tâches dans un `todo.txt`, les événements dans un format maison `agendatxt`, les dépenses dans un autre format maison, les notes en Markdown, et une application Android de démonstration, MOrg, pour tenir tout ça ensemble sur mobile. Presque quatre ans plus tard, tout est toujours en texte brut, mais presque tout le reste a changé. Le changement principal tient en une phrase : **j'ai arrêté de découper ma vie par type de données, et je la découpe par jour.**
 
 ## Ce qui n'allait pas dans la première version
 

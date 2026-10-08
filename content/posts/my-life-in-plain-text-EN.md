@@ -9,7 +9,7 @@ image: https://rvier.fr/images/morg_screenshot_main_dark.jpg
 summary: 'How I manage todos, agenda, journal and notes in plain text files: todo.txt, custom agendatxt and expensetxt formats, Markdown, vim and the MOrg Android app.'
 ---
 
-*Update 2026: this setup has since evolved, see the follow-up, [My life in plain text, revisited: Planova and one Markdown file per day](my-life-in-plain-text-using-planova-EN.html).*
+*Update 2026: this setup has since evolved, see the follow-up, [My life in plain text, revisited: Planova and one Markdown file per day](my-life-in-plain-text-using-planova-EN).*
 
 For a long time I used Orgmode files to take notes, todos, and sometimes agenda events. While I like the Orgzly app on Android a lot, I wasn't happy with the sync, and worse, without a specific tool the OrgMode format is quite unusable due to its complexity.
 

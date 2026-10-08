@@ -10,7 +10,7 @@ image: https://rvier.fr/images/easyocr-finetuning-pipeline.png
 summary: 'The complete recipe to fine-tune EasyOCR''s recognizer on your own domain: auto-labelling with the stock model, human correction, the training configuration, and the three files that deploy it.'
 ---
 
-In [the OCR + LLM post](ocr-llm-enrichment-broadcast-transcripts-EN.html) I mentioned that our biggest OCR accuracy gain came from fine-tuning the recognition model on our own frames. Several people asked for the how, and the honest answer is that EasyOCR fine-tuning is poorly documented: the pieces exist (an official trainer, a custom-network mechanism), but nobody shows the full path from "production frames" to `easyocr.Reader(recog_network=...)`. This is that path, exactly as we walked it.
+In [the OCR + LLM post](ocr-llm-enrichment-broadcast-transcripts-EN) I mentioned that our biggest OCR accuracy gain came from fine-tuning the recognition model on our own frames. Several people asked for the how, and the honest answer is that EasyOCR fine-tuning is poorly documented: the pieces exist (an official trainer, a custom-network mechanism), but nobody shows the full path from "production frames" to `easyocr.Reader(recog_network=...)`. This is that path, exactly as we walked it.
 
 <img src="../images/easyocr-finetuning-pipeline.png" alt="EasyOCR fine-tuning pipeline: harvest crops, auto-label, correct, train, deploy" loading="lazy" width="1200" height="627">
 

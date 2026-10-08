@@ -17,7 +17,7 @@ Where I work, the dev team used to be twelve people, including two senior leads.
 
 ## The quality question
 
-Let's be honest about what most of our code actually is. Yes, we have a few genuinely touchy processes that demand solid architecture skills: the [speech-to-text pipeline](running-whisper-24-7-on-broadcast-streams-EN.html), the [OCR](ocr-llm-enrichment-broadcast-transcripts-EN.html), the [24/7 video capture platform](recording-broadcast-24-7-capture-platform-architecture-EN.html), and the audio recognition platform. Those still need someone who knows what they are doing, and the LLM is an assistant there, not an author.
+Let's be honest about what most of our code actually is. Yes, we have a few genuinely touchy processes that demand solid architecture skills: the [speech-to-text pipeline](running-whisper-24-7-on-broadcast-streams-EN), the [OCR](ocr-llm-enrichment-broadcast-transcripts-EN), the [24/7 video capture platform](recording-broadcast-24-7-capture-platform-architecture-EN), and the audio recognition platform. Those still need someone who knows what they are doing, and the LLM is an assistant there, not an author.
 
 But the bulk of what we ship is not that. It is data entry and data presentation tools: forms, tables, imports, exports, dashboards. And on that kind of code, comparing what the LLM generates to what an average dev writes, the generated code is often simply better. Not better than what our two former senior leads would have written. Better than the realistic alternative.
 

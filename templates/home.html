@@ -91,7 +91,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="tailwind.css">
+{{template "icons"}}  <link rel="stylesheet" href="{{asset "tailwind.css"}}">
   <style>
     /* Custom Gruvbox Dark Theme */
     :root {
@@ -124,7 +124,7 @@
       <a href="#portfolio"
         class="bg-[var(--accent)] hover:bg-[var(--accent-alt)] text-[var(--bg-dark)] font-semibold py-2 px-4 rounded-full transition">See
         My Work</a>
-      <a href="posts/index.html"
+      <a href="posts/"
         class="border border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-dark)] font-semibold py-2 px-4 rounded-full transition">Read
         the Blog</a>
       <a href="#contact"
@@ -154,15 +154,17 @@
         <div class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
           <div
             class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-white/70 border border-[var(--bg-light)] flex items-center justify-center p-2">
-            <img src="{{.Image}}" alt="{{.Alt}}" class="w-full h-full object-contain">
+            <img src="{{.Image}}" alt="{{.Alt}}" loading="lazy" decoding="async" class="w-full h-full object-contain">
           </div>
           <h4 class="text-2xl font-semibold mb-2">{{.Title}}</h4>
           {{.Body}}
           {{- if .Stack}}
           <div class="text-sm text-[var(--accent)] font-mono">Stack: {{.Stack}}</div>
           {{- end}}
-          {{- if .LinkText}}
+          {{- if and .Link .LinkText}}
           <a href="{{.Link}}" class="text-[var(--accent)] hover:underline">{{.LinkText}}</a>
+          {{- else if .LinkText}}
+          <span class="opacity-70">{{.LinkText}}</span>
           {{- end}}
         </div>
         {{- end}}

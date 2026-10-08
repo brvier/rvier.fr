@@ -10,7 +10,7 @@ image: https://rvier.fr/images/whisper-broadcast-pipeline.png
 summary: 'WhisperX and pyannote diarization on multi-GPU workers, 24/7: dynamic GPU rebalancing between transcription and diarization, crash-only CUDA error handling, and silence injection for missing audio.'
 ---
 
-In [the pgvector post](deduplicating-speakers-with-pgvector-and-hnsw-EN.html) I explained how we deduplicate thousands of speaker voices in PostgreSQL. This post is about the upstream side: where those transcripts and voice embeddings come from. Our platform transcribes French TV and radio streams continuously, with word-level timestamps, speaker diarization and speaker identification. The workers are Python, PyTorch and ffmpeg, running unattended on multi-GPU machines.
+In [the pgvector post](deduplicating-speakers-with-pgvector-and-hnsw-EN) I explained how we deduplicate thousands of speaker voices in PostgreSQL. This post is about the upstream side: where those transcripts and voice embeddings come from. Our platform transcribes French TV and radio streams continuously, with word-level timestamps, speaker diarization and speaker identification. The workers are Python, PyTorch and ffmpeg, running unattended on multi-GPU machines.
 
 <img src="../images/whisper-broadcast-pipeline.png" alt="Broadcast STT pipeline: extraction threads, WhisperX GPUs, diarization GPUs, result threads" loading="lazy" width="1200" height="627">
 

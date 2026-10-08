@@ -1,0 +1,17 @@
+# Cloudflare Pages redirects, generated from templates/_redirects.
+
+# Blog posts used to live at the site root.
+/posts.html /posts/ 301
+/why-i-like-go-golang-EN.html /posts/why-i-like-go-golang-EN 301
+/why-i-like-go-golang-EN /posts/why-i-like-go-golang-EN 301
+/my-life-in-plain-text-EN.html /posts/my-life-in-plain-text-EN 301
+/my-life-in-plain-text-EN /posts/my-life-in-plain-text-EN 301
+/le-bitcoin-est-un-echec-en-france-FR.html /posts/le-bitcoin-est-un-echec-en-france-FR 301
+/le-bitcoin-est-un-echec-en-france-FR /posts/le-bitcoin-est-un-echec-en-france-FR 301
+/3-erreurs-frequentes-dutilisation-du-module-logging-de-python-FR.html /posts/3-erreurs-frequentes-dutilisation-du-module-logging-de-python-FR 301
+/3-erreurs-frequentes-dutilisation-du-module-logging-de-python-FR /posts/3-erreurs-frequentes-dutilisation-du-module-logging-de-python-FR 301
+
+# Markdown versions moved from posts/<slug>.html.md to posts/<slug>.md.
+{{range .Posts -}}
+/posts/{{.Slug}}.html.md /posts/{{.Slug}}.md 301
+{{end -}}

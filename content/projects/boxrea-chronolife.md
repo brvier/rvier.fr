@@ -2,7 +2,7 @@
 title: BoxRea (Chronolife)
 section: professional
 weight: 150
-image: ./images/boxrea.jpg
+image: ./images/boxrea.webp
 alt: BoxRea
 stack: C++
 ---

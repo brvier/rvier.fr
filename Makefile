@@ -3,8 +3,8 @@
 build:
 	go run ./generator
 
-serve: build
-	cd public && python3 -m http.server 8000
+serve:
+	go run ./generator -serve localhost:8000
 
 clean:
 	rm -rf public

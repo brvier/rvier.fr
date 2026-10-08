@@ -2,6 +2,7 @@
 title: 'Les flux des diffuseurs sont parfois vraiment très crades'
 date: '2026-09-12'
 lang: fr
+translation: broadcaster-streams-are-sometimes-really-dirty-canal-interlaced-hevc-netint-quadra-EN
 featured: true
 description: 'Une chaîne Canal+ reçue par satellite en HEVC 1080i faisait tourner nos encodeurs en décodage logiciel, ni NVDEC ni NetInt Quadra n''acceptant le HEVC entrelacé. En regardant le flux de près, les images sont progressives : seuls trois drapeaux disent le contraire. Un bitstream filter ffmpeg de 450 lignes les efface, la carte décode, et sauve quatre fois plus d''images que le CPU sur ce flux corrompu à 12 %.'
 ogDescription: 'Du HEVC 1080i que le NetInt Quadra refusait : les images sont progressives, seuls trois drapeaux mentent. Un bitstream filter ffmpeg les efface.'
@@ -9,7 +10,7 @@ keywords: ffmpeg, HEVC, Canal+, bitstream filter, NetInt, Quadra, entrelacé, fi
 summary: 'Comment un flux Canal+ en HEVC 1080i field-coded, refusé par le décodeur NetInt Quadra, est passé en décodage matériel grâce à un bitstream filter ffmpeg qui efface la signalisation d''entrelacement. Avec le code, la ligne ffmpeg, les résultats sur un flux corrompu, et la réponse de NetInt.'
 ---
 
-Dans la [plateforme de captation](recording-broadcast-24-7-capture-platform-architecture-EN.html), il y a un flux que j'ai fini par appeler « le flux merdique de Canal ». C'est une chaîne du bouquet Canal+ reçue par satellite, « Barker à la une », en HEVC 1080i :
+Dans la [plateforme de captation](recording-broadcast-24-7-capture-platform-architecture-EN), il y a un flux que j'ai fini par appeler « le flux merdique de Canal ». C'est une chaîne du bouquet Canal+ reçue par satellite, « Barker à la une », en HEVC 1080i :
 
 - un entrelacement qu'aucun de nos décodeurs matériels n'accepte
 - 12 % de paquets corrompus

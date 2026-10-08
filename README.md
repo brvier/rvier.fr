@@ -10,13 +10,15 @@ content/
   projects/<name>.md   portfolio cards for the homepage
 templates/
   post.html            blog post page
-  post.md              Markdown version of a post (posts/<slug>.html.md)
+  post.md              Markdown version of a post (posts/<slug>.md)
   llms.txt             public/llms.txt, filled with posts and projects
   blogindex.html       posts/index.html
   home.html            homepage (portfolio sections are templated)
-  partials.html        shared "Let's Connect" + footer blocks
-static/                copied verbatim into public/ (images, css, robots.txt,
-                       legacy root redirect stubs)
+  404.html             page served by Cloudflare Pages for unknown URLs
+  _redirects           Cloudflare Pages redirects (legacy URLs, old .html.md)
+  partials.html        shared "Let's Connect", footer and icon blocks
+static/                copied verbatim into public/ (images, css, icons,
+                       robots.txt, _headers for Cloudflare Pages caching)
 generator/             the generator (go run ./generator)
 public/                GENERATED website, ready to deploy, gitignored,
                        recreated from scratch by every build
@@ -26,11 +28,16 @@ public/                GENERATED website, ready to deploy, gitignored,
 
 ```bash
 make build        # regenerates public/ entirely
-make serve        # build + http://localhost:8000
+make serve        # build + http://localhost:8000 (resolves /posts/<slug>
+                  # to <slug>.html and serves 404.html, like Cloudflare Pages)
 make clean        # removes public/
 ```
 
-Deploy by publishing the `public/` directory (rsync, scp, GitHub Pages...).
+Deploy by publishing the `public/` directory to Cloudflare Pages.
+
+Pages answers `/posts/<slug>.html` with a 308 to `/posts/<slug>`, so every
+public URL (canonical, sitemap, JSON-LD, llms.txt, internal links) uses the
+extensionless form. Link to other posts the same way: `[text](other-post-EN)`.
 
 ## Writing a post
 
@@ -49,6 +56,9 @@ ogDescription: Shorter text for og:description (defaults to description).
 image: https://rvier.fr/images/something.png   # og:image + JSON-LD image
 keywords: Go, Golang, something                # JSON-LD keywords
 featured: true          # listed under "Blog" in llms.txt (others go under "Optional")
+translation: my-new-post-FR   # slug of the same post in the other language:
+                              # hreflang links and a visible "read in" link,
+                              # on both posts (declaring one side is enough)
 ---
 
 Markdown body. Raw HTML is allowed, e.g. sized images:
@@ -56,8 +66,8 @@ Markdown body. Raw HTML is allowed, e.g. sized images:
 <img src="../images/foo.png" alt="Foo" loading="lazy" width="360">
 ```
 
-Then `make build`. The post page, its Markdown version, blog index, sitemap
-and llms.txt are all regenerated.
+Then `make build`. The post page, its Markdown version, blog index, sitemap,
+llms.txt and _redirects are all regenerated.
 
 ## Adding a portfolio project
 
@@ -73,7 +83,7 @@ alt: My Project, short alt text
 # optional:
 stack: Go / PostgreSQL  # renders the "Stack: ..." line
 link: https://github.com/brvier/myproject
-linkText: View Project  # linkText without link renders a dead link ("Archive unavailable")
+linkText: View Project  # linkText without link renders as plain text ("Archive unavailable")
 ---
 
 One-paragraph description shown on the card and in llms.txt.

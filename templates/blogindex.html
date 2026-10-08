@@ -7,14 +7,14 @@
   <title>Blog, Benoît HERVIER | Go, Python, Software Engineering</title>
   <meta name="description"
     content="Articles about Go, Python, software engineering and plain-text productivity, by Benoît Hervier, lead developer and software architect.">
-  <link rel="canonical" href="https://rvier.fr/posts/index.html">
+  <link rel="canonical" href="https://rvier.fr/posts/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rvier.fr/posts/index.html">
+  <meta property="og:url" content="https://rvier.fr/posts/">
   <meta property="og:title" content="Blog, Benoît HERVIER">
   <meta property="og:description"
     content="Articles about Go, Python, software engineering and plain-text productivity.">
-  <link rel="stylesheet" href="../tailwind.css">
-  <link rel="stylesheet" href="../blog.css">
+{{template "icons"}}  <link rel="stylesheet" href="../{{asset "tailwind.css"}}">
+  <link rel="stylesheet" href="../{{asset "blog.css"}}">
 </head>
 
 <body class="font-sans">
@@ -22,7 +22,7 @@
   <header class="max-w-3xl mx-auto px-6 pt-8 flex justify-between items-center">
     <a href="../" class="font-bold text-[var(--accent)] hover:underline">Benoît HERVIER</a>
     <nav class="space-x-6">
-      <a href="index.html" class="text-[var(--accent)] hover:underline">Blog</a>
+      <a href="./" class="text-[var(--accent)] hover:underline">Blog</a>
       <a href="../#portfolio" class="text-[var(--accent)] hover:underline">Portfolio</a>
     </nav>
   </header>
@@ -34,7 +34,7 @@
 {{range .Posts}}
       <article class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
         <p class="text-sm opacity-70 mb-1"><time datetime="{{.Date}}">{{.DisplayDate}}</time> · {{.LangTag}}</p>
-        <h2 class="text-2xl font-semibold mb-2"><a href="{{.Slug}}.html"
+        <h2 class="text-2xl font-semibold mb-2"><a href="{{.Slug}}"
             class="text-[var(--accent)] hover:underline">{{.Title}}</a></h2>
         <p>{{.Summary}}</p>
       </article>

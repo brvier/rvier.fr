@@ -2,7 +2,7 @@
 title: ChronoMonitoring (Chronolife)
 section: professional
 weight: 160
-image: ./images/chronomonitoring.png
+image: ./images/chronomonitoring.webp
 alt: ChronoMonitoring
 stack: C++ / Java / Objective-C / Python / Kivy
 ---

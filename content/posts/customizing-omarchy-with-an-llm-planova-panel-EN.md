@@ -9,7 +9,7 @@ image: https://rvier.fr/images/planova_quickshell_panel.png
 summary: 'Omarchy 4 replaced its bar with quickshell, and its clock widget gave me an idea: why not make it look like Planova? One prompt, a few follow-up requests, and the clock became a full calendar/todos/notes panel over my plaintext files.'
 ---
 
-Omarchy 4 rebuilt its bar and desktop shell on [quickshell](https://quickshell.org/). In the middle of the bar sits a widget showing the date and time, and clicking it opens a small calendar. Nice, but I don't need a generic calendar: my agenda, todos and notes already live in [Planova](my-life-in-plain-text-using-planova-EN.html)'s Markdown files, one file per day, synced everywhere with Syncthing. So I thought: why not transform this widget so it looks like Planova?
+Omarchy 4 rebuilt its bar and desktop shell on [quickshell](https://quickshell.org/). In the middle of the bar sits a widget showing the date and time, and clicking it opens a small calendar. Nice, but I don't need a generic calendar: my agenda, todos and notes already live in [Planova](my-life-in-plain-text-using-planova-EN)'s Markdown files, one file per day, synced everywhere with Syncthing. So I thought: why not transform this widget so it looks like Planova?
 
 <img src="../images/planova_quickshell_panel.png" alt="The Planova quickshell panel open under the Omarchy bar: month calendar with per-day indicators, and the selected day's events, todos, and notes" loading="lazy" width="700" height="976">
 

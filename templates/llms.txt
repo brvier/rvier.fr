@@ -58,7 +58,7 @@ Blog links below point to the Markdown version of each post; drop the trailing .
 {{range .Featured -}}
 - [{{oneline .Title}}]({{.MarkdownURL}}){{if eq .Lang "fr"}} (in French){{end}}: {{oneline .Description}}
 {{end -}}
-- [All posts](https://rvier.fr/posts/index.html)
+- [All posts](https://rvier.fr/posts/)
 
 ## Contact
 

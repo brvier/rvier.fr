@@ -7,7 +7,11 @@
   <title>{{.Title}}, Benoît HERVIER</title>
   <meta name="description" content="{{.Description}}">
   <link rel="canonical" href="{{.URL}}">
-  <link rel="alternate" type="text/markdown" href="{{.Slug}}.html.md">
+  <link rel="alternate" type="text/markdown" href="{{.Slug}}.md">
+{{- with .Translation}}
+  <link rel="alternate" hreflang="{{$.Lang}}" href="{{$.URL}}">
+  <link rel="alternate" hreflang="{{.Lang}}" href="{{.URL}}">
+{{- end}}
   <meta property="og:type" content="article">
   <meta property="og:url" content="{{.URL}}">
   <meta property="og:title" content="{{.Title}}">
@@ -22,8 +26,8 @@
   <script type="application/ld+json">
   {{.JSONLD}}
   </script>
-  <link rel="stylesheet" href="../tailwind.css">
-  <link rel="stylesheet" href="../blog.css">
+{{template "icons"}}  <link rel="stylesheet" href="../{{asset "tailwind.css"}}">
+  <link rel="stylesheet" href="../{{asset "blog.css"}}">
 </head>
 
 <body class="font-sans">
@@ -31,7 +35,7 @@
   <header class="max-w-3xl mx-auto px-6 pt-8 flex justify-between items-center">
     <a href="../" class="font-bold text-[var(--accent)] hover:underline">Benoît HERVIER</a>
     <nav class="space-x-6">
-      <a href="index.html" class="text-[var(--accent)] hover:underline">Blog</a>
+      <a href="./" class="text-[var(--accent)] hover:underline">Blog</a>
       <a href="../#portfolio" class="text-[var(--accent)] hover:underline">Portfolio</a>
     </nav>
   </header>
@@ -40,7 +44,8 @@
     <article>
       <h1 class="text-3xl md:text-4xl font-bold mb-2">{{.Title}}</h1>
       <p class="text-sm opacity-70 mb-8"><time datetime="{{.Date}}">{{.DisplayDate}}</time>{{if .Updated}}, updated
-        <time datetime="{{.Updated}}">{{.DisplayUpdated}}</time>{{end}}</p>
+        <time datetime="{{.Updated}}">{{.DisplayUpdated}}</time>{{end}}{{with .Translation}} · <a href="{{.Slug}}"
+          hreflang="{{.Lang}}" lang="{{.Lang}}" class="text-[var(--accent)] hover:underline">{{.ReadIn}}</a>{{end}}</p>
 
 {{.Body}}
     </article>

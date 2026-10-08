@@ -1,21 +1,32 @@
 // Command generator builds the rvier.fr website into public/:
 //
-//	static/*              -> public/* (copied verbatim: images, css, robots.txt, redirects)
-//	content/posts/*.md    -> public/posts/<slug>.html, public/posts/<slug>.html.md, public/posts/index.html, public/sitemap.xml
+//	static/*              -> public/* (copied verbatim: images, css, icons, robots.txt, _headers)
+//	content/posts/*.md    -> public/posts/<slug>.html, public/posts/<slug>.md, public/posts/index.html, public/sitemap.xml
 //	content/projects/*.md -> public/index.html (portfolio sections of templates/home.html)
 //	posts + projects      -> public/llms.txt (templates/llms.txt)
+//	posts                 -> public/_redirects (templates/_redirects)
+//	templates/404.html    -> public/404.html
 //
-// Run from the repository root: go run ./generator
+// The site is served by Cloudflare Pages, which answers /posts/<slug>.html
+// with a 308 to /posts/<slug>: every public URL is written in that final,
+// extensionless form.
+//
+// Run from the repository root: go run ./generator [-serve localhost:8000]
 package main
 
 import (
 	"bytes"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"html/template"
 	"io"
 	"log"
+	"net/http"
 	"os"
+	"path"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -46,13 +57,17 @@ type Post struct {
 	Keywords      string `yaml:"keywords"`
 	Summary       string `yaml:"summary"`
 	Featured      bool   `yaml:"featured"`
+	// TranslationSlug names the same post in the other language. Declaring
+	// it on one side is enough, linkTranslations sets the reverse link.
+	TranslationSlug string `yaml:"translation"`
 
-	Slug   string        `yaml:"-"`
-	Body   template.HTML `yaml:"-"`
-	Source string        `yaml:"-"` // markdown body, for the .html.md version
+	Slug        string        `yaml:"-"`
+	Body        template.HTML `yaml:"-"`
+	Source      string        `yaml:"-"` // markdown body, for the .md version
+	Translation *Post         `yaml:"-"`
 }
 
-func (p Post) URL() string            { return "https://rvier.fr/posts/" + p.Slug + ".html" }
+func (p Post) URL() string            { return "https://rvier.fr/posts/" + p.Slug }
 func (p Post) MarkdownURL() string    { return p.URL() + ".md" }
 func (p Post) LangTag() string        { return strings.ToUpper(p.Lang) }
 func (p Post) DisplayDate() string    { return displayDate(p.Date, p.Lang) }
@@ -62,6 +77,14 @@ func (p Post) LastMod() string {
 		return p.Updated
 	}
 	return p.Date
+}
+
+// ReadIn is the label of a link to p, written in p's own language.
+func (p Post) ReadIn() string {
+	if p.Lang == "fr" {
+		return "Lire ce billet en français"
+	}
+	return "Read this post in English"
 }
 
 func (p Post) JSONLD() (template.JS, error) {
@@ -218,7 +241,34 @@ func loadPosts() ([]Post, error) {
 		}
 		return posts[i].Slug < posts[j].Slug
 	})
-	return posts, nil
+	return posts, linkTranslations(posts)
+}
+
+// linkTranslations pairs each post with its translation, both ways.
+func linkTranslations(posts []Post) error {
+	bySlug := map[string]*Post{}
+	for i := range posts {
+		bySlug[posts[i].Slug] = &posts[i]
+	}
+	for i := range posts {
+		p := &posts[i]
+		if p.TranslationSlug == "" {
+			continue
+		}
+		t, ok := bySlug[p.TranslationSlug]
+		switch {
+		case !ok:
+			return fmt.Errorf("%s: translation %q not found", p.Slug, p.TranslationSlug)
+		case t.Lang == p.Lang:
+			return fmt.Errorf("%s: translation %q has the same language", p.Slug, t.Slug)
+		case t.TranslationSlug != "" && t.TranslationSlug != p.Slug:
+			return fmt.Errorf("%s: translation %q points to %q", p.Slug, t.Slug, t.TranslationSlug)
+		case p.Translation != nil && p.Translation != t, t.Translation != nil && t.Translation != p:
+			return fmt.Errorf("%s: %q is linked to more than one translation", p.Slug, t.Slug)
+		}
+		p.Translation, t.Translation = t, p
+	}
+	return nil
 }
 
 func loadSections() ([]Section, error) {
@@ -282,7 +332,7 @@ func writeSitemap(posts []Post) error {
 		fmt.Fprintf(&b, "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n  </url>\n", loc, lastmod)
 	}
 	entry("https://rvier.fr/", latest)
-	entry("https://rvier.fr/posts/index.html", latest)
+	entry("https://rvier.fr/posts/", latest)
 	for _, p := range posts {
 		entry(p.URL(), p.LastMod())
 	}
@@ -312,7 +362,34 @@ func copyStatic() error {
 	})
 }
 
-// textFuncs serve the plain-text templates (llms.txt, post.md).
+// htmlFuncs serve the HTML templates.
+var htmlFuncs = template.FuncMap{
+	// asset turns "tailwind.css" into "tailwind.css?v=<content hash>", so
+	// static/_headers can cache it for a year and a change still shows up.
+	"asset": assetVersion,
+}
+
+var assetHashes = map[string]string{}
+
+func assetVersion(name string) (string, error) {
+	h, ok := assetHashes[name]
+	if !ok {
+		data, err := os.ReadFile(filepath.Join(staticDir, name))
+		if err != nil {
+			return "", err
+		}
+		sum := sha256.Sum256(data)
+		h = hex.EncodeToString(sum[:4])
+		assetHashes[name] = h
+	}
+	return name + "?v=" + h, nil
+}
+
+func parseHTML(files ...string) *template.Template {
+	return template.Must(template.New(filepath.Base(files[0])).Funcs(htmlFuncs).ParseFiles(files...))
+}
+
+// textFuncs serve the plain-text templates (llms.txt, post.md, _redirects).
 var textFuncs = texttemplate.FuncMap{
 	// oneline collapses newlines and runs of spaces, so multi-line front
 	// matter values and paragraphs fit on a single markdown list item.
@@ -332,7 +409,38 @@ func renderToFile(t executor, path string, data any) error {
 	return os.WriteFile(path, buf.Bytes(), 0o644)
 }
 
+// serve previews public/ the way Cloudflare Pages serves it, closely enough
+// for local browsing: /posts/foo answers with posts/foo.html, unknown paths
+// get 404.html.
+func serve(addr string) error {
+	files := http.FileServer(http.Dir(outDir))
+	log.Printf("serving %s on http://%s", outDir, addr)
+	return http.ListenAndServe(addr, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		p := filepath.Join(outDir, filepath.FromSlash(path.Clean(r.URL.Path)))
+		if _, err := os.Stat(p); err == nil {
+			files.ServeHTTP(w, r)
+			return
+		}
+		if _, err := os.Stat(p + ".html"); err == nil {
+			r.URL.Path += ".html"
+			files.ServeHTTP(w, r)
+			return
+		}
+		page, err := os.ReadFile(filepath.Join(outDir, "404.html"))
+		if err != nil {
+			http.NotFound(w, r)
+			return
+		}
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.WriteHeader(http.StatusNotFound)
+		w.Write(page)
+	}))
+}
+
 func main() {
+	addr := flag.String("serve", "", "after building, serve public/ on this address (e.g. localhost:8000)")
+	flag.Parse()
+
 	posts, err := loadPosts()
 	if err != nil {
 		log.Fatal(err)
@@ -342,11 +450,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	postTpl := template.Must(template.ParseFiles("templates/post.html", "templates/partials.html"))
-	indexTpl := template.Must(template.ParseFiles("templates/blogindex.html", "templates/partials.html"))
-	homeTpl := template.Must(template.ParseFiles("templates/home.html"))
+	postTpl := parseHTML("templates/post.html", "templates/partials.html")
+	indexTpl := parseHTML("templates/blogindex.html", "templates/partials.html")
+	homeTpl := parseHTML("templates/home.html", "templates/partials.html")
+	notFoundTpl := parseHTML("templates/404.html", "templates/partials.html")
 	postMDTpl := texttemplate.Must(texttemplate.New("post.md").Funcs(textFuncs).ParseFiles("templates/post.md"))
 	llmsTpl := texttemplate.Must(texttemplate.New("llms.txt").Funcs(textFuncs).ParseFiles("templates/llms.txt"))
+	redirectsTpl := texttemplate.Must(texttemplate.New("_redirects").Funcs(textFuncs).ParseFiles("templates/_redirects"))
 
 	if err := os.RemoveAll(outDir); err != nil {
 		log.Fatal(err)
@@ -362,7 +472,7 @@ func main() {
 		if err := renderToFile(postTpl, filepath.Join(outDir, "posts", p.Slug+".html"), p); err != nil {
 			log.Fatal(err)
 		}
-		if err := renderToFile(postMDTpl, filepath.Join(outDir, "posts", p.Slug+".html.md"), p); err != nil {
+		if err := renderToFile(postMDTpl, filepath.Join(outDir, "posts", p.Slug+".md"), p); err != nil {
 			log.Fatal(err)
 		}
 	}
@@ -370,6 +480,12 @@ func main() {
 		log.Fatal(err)
 	}
 	if err := renderToFile(homeTpl, filepath.Join(outDir, "index.html"), map[string]any{"Sections": secs}); err != nil {
+		log.Fatal(err)
+	}
+	if err := renderToFile(notFoundTpl, filepath.Join(outDir, "404.html"), nil); err != nil {
+		log.Fatal(err)
+	}
+	if err := renderToFile(redirectsTpl, filepath.Join(outDir, "_redirects"), map[string]any{"Posts": posts}); err != nil {
 		log.Fatal(err)
 	}
 	if err := writeSitemap(posts); err != nil {
@@ -393,11 +509,15 @@ func main() {
 		map[string]any{"Featured": featured, "Other": other, "Projects": projects}); err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("generated %d posts, blog index, homepage (%d projects), sitemap, llms.txt",
+	log.Printf("generated %d posts, blog index, homepage (%d projects), 404, sitemap, llms.txt, _redirects",
 		len(posts), func() (n int) {
 			for _, s := range secs {
 				n += len(s.Projects)
 			}
 			return
 		}())
+
+	if *addr != "" {
+		log.Fatal(serve(*addr))
+	}
 }

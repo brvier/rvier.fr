@@ -2,13 +2,14 @@
 title: 'My life in plain text, revisited: Planova and one Markdown file per day'
 date: '2026-07-12'
 lang: en
+translation: ma-vie-en-texte-brut-avec-planova-FR
 description: 'Four years after my first plain-text setup, I replaced todo.txt and custom formats with one Markdown daily file: Planova on Android and Linux, a Go CLI, vim, and Syncthing.'
 ogDescription: 'Replacing todo.txt and custom formats with one Markdown daily file: Planova on Android and Linux, a Go CLI, vim, and Syncthing.'
 image: https://rvier.fr/images/planova_screenshot_main.png
 keywords: plain text, Markdown, PIM, todo, agenda, journal, notes, Planova, Flutter, Go, Syncthing
 ---
 
-In 2022 I wrote [My life in plain text](my-life-in-plain-text-EN.html): todos in `todo.txt`, events in a homemade `agendatxt` format, expenses in another homemade format, notes in Markdown, and a proof-of-concept Android app called MOrg to glue it all together on mobile. Almost four years later, everything is still plain text, but almost everything else about the setup has changed. The main change fits in one sentence: **I stopped splitting my life by kind of data, and started splitting it by day.**
+In 2022 I wrote [My life in plain text](my-life-in-plain-text-EN): todos in `todo.txt`, events in a homemade `agendatxt` format, expenses in another homemade format, notes in Markdown, and a proof-of-concept Android app called MOrg to glue it all together on mobile. Almost four years later, everything is still plain text, but almost everything else about the setup has changed. The main change fits in one sentence: **I stopped splitting my life by kind of data, and started splitting it by day.**
 
 ## What was wrong with the first setup
 

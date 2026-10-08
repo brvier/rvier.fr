@@ -2,7 +2,7 @@
 title: "P2P & Encrypted Communication for Firing Devices (Davey Bickford\n            Enaex)"
 section: professional
 weight: 20
-image: ./images/Logo_Davey_Bickford.png
+image: ./images/Logo_Davey_Bickford.webp
 alt: Davey Bickford Enaex Logo
 stack: C++ / Embedded Linux / Cryptography
 ---

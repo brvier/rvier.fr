@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found, Benoît HERVIER</title>
+  <meta name="robots" content="noindex">
+{{template "icons"}}  <link rel="stylesheet" href="/{{asset "tailwind.css"}}">
+  <link rel="stylesheet" href="/{{asset "blog.css"}}">
+</head>
+
+<body class="font-sans">
+
+  <header class="max-w-3xl mx-auto px-6 pt-8 flex justify-between items-center">
+    <a href="/" class="font-bold text-[var(--accent)] hover:underline">Benoît HERVIER</a>
+    <nav class="space-x-6">
+      <a href="/posts/" class="text-[var(--accent)] hover:underline">Blog</a>
+      <a href="/#portfolio" class="text-[var(--accent)] hover:underline">Portfolio</a>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-10">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6">Page not found</h1>
+    <p class="mb-4">This page does not exist, or no longer does. Try the <a href="/"
+        class="text-[var(--accent)] hover:underline">homepage</a> or the <a href="/posts/"
+        class="text-[var(--accent)] hover:underline">blog</a>.</p>
+    <p lang="fr">Cette page n'existe pas ou plus. Essayez la <a href="/"
+        class="text-[var(--accent)] hover:underline">page d'accueil</a> ou le <a href="/posts/"
+        class="text-[var(--accent)] hover:underline">blog</a>.</p>
+  </main>
+
+{{template "footer"}}
+</body>
+
+</html>

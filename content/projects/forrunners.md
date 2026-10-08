@@ -2,7 +2,7 @@
 title: ForRunners
 section: opensource
 weight: 200
-image: ./images/forrunners-main-left.png
+image: ./images/forrunners-main-left.webp
 alt: ForRunners
 link: https://gitlab.com/brvier/ForRunners
 linkText: View Project
