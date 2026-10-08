@@ -2,7 +2,7 @@
 
 > Benoît Hervier is a freelance lead developer and software architect based near Paris, France, with 20+ years of experience in Go (Golang), Python and C/C++ on Linux. He designs and builds reliable systems: 24/7 broadcast capture and AI media analytics platforms (speech-to-text, OCR, LLM enrichment, audio fingerprinting, vector search), CE-certified Class IIa embedded medical devices, scalable backend services and SaaS. Currently available part-time for freelance missions, consulting and audits. Contact: b@rvier.fr or Malt (https://www.malt.fr/profile/benoithervier).
 
-En français : Benoît Hervier est développeur Go et Python freelance, lead developer et architecte logiciel indépendant, basé à Crépy-en-Valois (Oise), au nord-est de Paris, avec plus de 20 ans d'expérience. Spécialités : plateformes de captation broadcast 24/7 (TV, radio, TNT, DVB, FFmpeg), IA appliquée aux médias (transcription Whisper, OCR, enrichissement par LLM auto-hébergés, recherche vectorielle pgvector), firmware embarqué et dispositifs médicaux certifiés CE classe IIa, services backend et SaaS en Go. Disponible à temps partiel pour des missions en régie ou au forfait, du conseil, des audits ou la reprise de projets en difficulté, en télétravail ou sur site en Île-de-France. TJM indicatif : 600 à 750 € HT selon la mission. Contact : b@rvier.fr ou Malt.
+En français : Benoît Hervier est développeur Go et Python freelance, lead developer et architecte logiciel indépendant, basé à Crépy-en-Valois (Oise), au nord-est de Paris, avec plus de 20 ans d'expérience. Spécialités : plateformes de captation broadcast 24/7 (TV, radio, TNT, DVB, FFmpeg), IA appliquée aux médias (transcription Whisper, OCR, enrichissement par LLM auto-hébergés, recherche vectorielle pgvector), firmware embarqué et dispositifs médicaux certifiés CE classe IIa, services backend et SaaS en Go. Disponible à temps partiel pour des missions en régie ou au forfait, du conseil, des audits ou la reprise de projets en difficulté, uniquement à distance. TJM indicatif : 600 à 750 € HT selon la mission. Contact : b@rvier.fr ou Malt.
 
 Key facts:
 
@@ -10,8 +10,8 @@ Key facts:
 - Role: Freelance Lead Developer & Software Architect
 - Experience: 20+ years
 - Location: Crépy-en-Valois (Oise, Hauts-de-France), about 60 km north-east of Paris
-- Work mode: remote across France, on-site possible in Paris and Île-de-France
-- Availability: part-time, a few days per week alongside an ongoing engagement
+- Work mode: remote only, for clients across France
+- Availability: part-time, a few days per week
 - Engagements: time and materials (régie) or fixed price (forfait), consulting, audits
 - Daily rate: 600 to 750 EUR excl. VAT, depending on the mission
 - French company number (SIRET): 520 039 132 00037
@@ -35,6 +35,8 @@ Services:
 - SaaS development in Go with Templ and HTMX, without a JavaScript framework
 - Setting up AI coding agents for a team: AGENTS.md files, skills, house conventions
 - Audits, rescue missions and performance optimization of existing systems
+
+Full services page, with rates and terms (in French): https://rvier.fr/services
 
 Professional work (selected clients and projects):
 

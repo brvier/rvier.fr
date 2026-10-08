@@ -6,6 +6,7 @@
 //	posts + projects      -> public/llms.txt (templates/llms.txt)
 //	posts                 -> public/_redirects (templates/_redirects)
 //	templates/404.html    -> public/404.html
+//	templates/services.html -> public/services.html
 //
 // The site is served by Cloudflare Pages, which answers /posts/<slug>.html
 // with a 308 to /posts/<slug>: every public URL is written in that final,
@@ -329,9 +330,14 @@ func writeSitemap(posts []Post) error {
 	b.WriteString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
 	b.WriteString("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n")
 	entry := func(loc, lastmod string) {
+		if lastmod == "" {
+			fmt.Fprintf(&b, "  <url>\n    <loc>%s</loc>\n  </url>\n", loc)
+			return
+		}
 		fmt.Fprintf(&b, "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n  </url>\n", loc, lastmod)
 	}
 	entry("https://rvier.fr/", latest)
+	entry("https://rvier.fr/services", "")
 	entry("https://rvier.fr/posts/", latest)
 	for _, p := range posts {
 		entry(p.URL(), p.LastMod())
@@ -454,6 +460,7 @@ func main() {
 	indexTpl := parseHTML("templates/blogindex.html", "templates/partials.html")
 	homeTpl := parseHTML("templates/home.html", "templates/partials.html")
 	notFoundTpl := parseHTML("templates/404.html", "templates/partials.html")
+	servicesTpl := parseHTML("templates/services.html", "templates/partials.html")
 	postMDTpl := texttemplate.Must(texttemplate.New("post.md").Funcs(textFuncs).ParseFiles("templates/post.md"))
 	llmsTpl := texttemplate.Must(texttemplate.New("llms.txt").Funcs(textFuncs).ParseFiles("templates/llms.txt"))
 	redirectsTpl := texttemplate.Must(texttemplate.New("_redirects").Funcs(textFuncs).ParseFiles("templates/_redirects"))
@@ -485,6 +492,9 @@ func main() {
 	if err := renderToFile(notFoundTpl, filepath.Join(outDir, "404.html"), nil); err != nil {
 		log.Fatal(err)
 	}
+	if err := renderToFile(servicesTpl, filepath.Join(outDir, "services.html"), nil); err != nil {
+		log.Fatal(err)
+	}
 	if err := renderToFile(redirectsTpl, filepath.Join(outDir, "_redirects"), map[string]any{"Posts": posts}); err != nil {
 		log.Fatal(err)
 	}
@@ -509,7 +519,7 @@ func main() {
 		map[string]any{"Featured": featured, "Other": other, "Projects": projects}); err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("generated %d posts, blog index, homepage (%d projects), 404, sitemap, llms.txt, _redirects",
+	log.Printf("generated %d posts, blog index, homepage (%d projects), services, 404, sitemap, llms.txt, _redirects",
 		len(posts), func() (n int) {
 			for _, s := range secs {
 				n += len(s.Projects)

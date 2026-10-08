@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Développeur Go et Python freelance, architecte logiciel | Benoît HERVIER</title>
+  <meta name="description"
+    content="Architecte logiciel et développeur Go et Python freelance, plus de 20 ans d'expérience : backend, IA appliquée, broadcast, embarqué médical. Missions à distance.">
+  <link rel="canonical" href="https://rvier.fr/services">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rvier.fr/services">
+  <meta property="og:title" content="Développeur Go et Python freelance, architecte logiciel">
+  <meta property="og:description"
+    content="Architecture, backend Go et Python, IA appliquée, broadcast, embarqué médical. Missions à distance, à temps partiel.">
+  <meta property="og:image" content="https://rvier.fr/images/me.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://rvier.fr/services",
+    "name": "Développeur Go et Python freelance, architecte logiciel",
+    "inLanguage": "fr",
+    "about": { "@id": "https://rvier.fr/#services" },
+    "author": { "@id": "https://rvier.fr/#person" }
+  }
+  </script>
+{{template "icons"}}  <link rel="stylesheet" href="{{asset "tailwind.css"}}">
+  <link rel="stylesheet" href="{{asset "blog.css"}}">
+</head>
+
+<body class="font-sans">
+
+  <header class="max-w-3xl mx-auto px-6 pt-8 flex justify-between items-center">
+    <a href="./" class="font-bold text-[var(--accent)] hover:underline">Benoît HERVIER</a>
+    <nav class="space-x-6">
+      <a href="posts/" class="text-[var(--accent)] hover:underline">Blog</a>
+      <a href="./#portfolio" class="text-[var(--accent)] hover:underline">Portfolio</a>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-10">
+    <article>
+      <h1 class="text-3xl md:text-4xl font-bold mb-8">Développeur Go et Python freelance, architecte logiciel</h1>
+
+      <p>Je suis Benoît Hervier, lead developer et architecte logiciel indépendant, avec plus de 20 ans
+        d'expérience. Je conçois et je construis des systèmes qui tournent sans surveillance, du firmware de
+        dispositifs médicaux certifiés CE jusqu'aux plateformes qui enregistrent et transcrivent la télévision
+        et la radio 24 h/24. Je travaille au quotidien en Go, en Python et en C/C++, sur Linux.</p>
+
+      <p>Je suis basé à Crépy-en-Valois (Oise), à 60 km au nord-est de Paris, et je travaille uniquement à
+        distance, pour des clients partout en France. Je suis disponible à temps partiel, quelques jours par
+        semaine.</p>
+
+      <h2>Domaines d'intervention</h2>
+
+      <h3>Architecture logicielle et lead technique</h3>
+      <p>Je conçois l'architecture de plateformes backend, médias et IA, et j'encadre les équipes qui les
+        construisent. Chez Yacast, je suis lead developer et je dirige l'ensemble des développements, dont
+        Hyperion, une plateforme qui enregistre en continu des chaînes TNT et DVB, des radios et des flux web.
+        Son architecture est décrite dans
+        <a href="posts/recording-broadcast-24-7-capture-platform-architecture-EN" hreflang="en">ce billet</a>
+        (en anglais).</p>
+
+      <h3>Services backend en Go et Python</h3>
+      <p>API, workers, orchestrateurs et systèmes distribués, avec PostgreSQL, RabbitMQ et Prometheus. Les
+        orchestrateurs de reconnaissance musicale, d'empreintes audio et d'analyse des médias de Yacast sont
+        écrits en Go. J'ai expliqué <a href="posts/why-i-like-go-golang-EN" hreflang="en">pourquoi j'aime
+          Go</a>, et comment j'ai <a href="posts/byte-for-byte-reproducing-a-legacy-binary-format-EN"
+          hreflang="en">reproduit octet pour octet un format binaire non documenté</a> avec.</p>
+
+      <h3>IA appliquée : transcription, OCR, LLM, recherche vectorielle</h3>
+      <p>Je mets des modèles en production sur des volumes réels. Whisper transcrit 24 h/24 la télévision et
+        la radio françaises sur une flotte de GPU, avec diarisation et identification des locuteurs. Un OCR
+        affiné sur nos propres images lit les incrustations à l'écran, et des LLM auto-hébergés s'en servent
+        pour enrichir les transcriptions. Les doublons de locuteurs sont fusionnés par recherche vectorielle
+        dans PostgreSQL. Chaque sujet a son billet :
+        <a href="posts/running-whisper-24-7-on-broadcast-streams-EN" hreflang="en">Whisper</a>,
+        <a href="posts/ocr-llm-enrichment-broadcast-transcripts-EN" hreflang="en">OCR et LLM</a>,
+        <a href="posts/fine-tuning-easyocr-on-your-own-frames-EN" hreflang="en">affinage d'EasyOCR</a> et
+        <a href="posts/deduplicating-speakers-with-pgvector-and-hnsw-EN" hreflang="en">pgvector</a>.</p>
+
+      <h3>Pipelines audio et vidéo</h3>
+      <p>FFmpeg, captation TNT, DVB, radio et web, décodage matériel avec NVDEC ou NetInt Quadra. Quand une
+        chaîne Canal+ en HEVC entrelacé refusait de passer sur nos cartes de décodage, j'ai écrit un
+        bitstream filter ffmpeg pour corriger le flux : <a
+          href="posts/canal-hevc-entrelace-netint-quadra-bitstream-filter-ffmpeg-FR">le récit est ici</a>.</p>
+
+      <h3>Linux embarqué et dispositifs médicaux</h3>
+      <p>Pour Chronolife, j'ai développé le firmware du t-shirt médical Diag, certifié CE classe IIa : un
+        nRF52 (ARM Cortex-M4) qui gère le Bluetooth Low Energy, les capteurs physiologiques (ECG, respiration,
+        température, bio-impédance), la mémoire flash NAND et l'énergie. J'ai aussi travaillé sur un système
+        médical automatisé de régulation de la pression artérielle des blessés, en partenariat avec la DGA,
+        sur la communication chiffrée de pair à pair entre appareils de tir pour Davey Bickford Enaex, et sur
+        un dispositif portable à caméra événementielle pour SattLutech.</p>
+
+      <h3>SaaS en Go, Templ et HTMX</h3>
+      <p>Je construis des applications web en Go avec Templ et HTMX, sans framework JavaScript.
+        <a href="https://ohayodojo.rvier.fr">OhayōDojo</a> gère les clubs de karaté (adhérents, licences,
+        grades, compétitions, paiements), et <a href="https://kryptalogs.rvier.fr">KryptaLogs</a> stocke des
+        logs chiffrés de bout en bout, que le serveur ne peut pas lire. La démarche est détaillée dans
+        <a href="posts/go-pocketbase-templ-htmx-EN" hreflang="en">ce billet</a>.</p>
+
+      <h3>Agents IA de code pour une équipe</h3>
+      <p>J'installe des agents de code dans une équipe de développement : fichiers AGENTS.md, skills, et les
+        conventions maison écrites de façon à ce que le code généré ressemble à celui de l'équipe. Voir
+        <a href="posts/encoding-house-conventions-into-ai-agent-skills-EN" hreflang="en">comment je code les
+          conventions dans des skills</a> et <a href="posts/from-twelve-devs-to-four-EN" hreflang="en">ce que
+          j'en ai vu dans une équipe passée de douze à quatre développeurs</a>.</p>
+
+      <h3>Audits, reprises de projets et performance</h3>
+      <p>Audit d'un système existant, reprise d'un projet en difficulté, recherche d'un goulot
+        d'étranglement. Un exemple d'optimisation simple et souvent oubliée :
+        <a href="posts/tmpfs-dev-shm-the-forgotten-ramdisk-optimization-EN" hreflang="en">tmpfs et
+          /dev/shm</a>.</p>
+
+      <h2>Modalités</h2>
+      <ul>
+        <li>Disponibilité : temps partiel, quelques jours par semaine.</li>
+        <li>Formats : régie ou forfait, conseil, audit.</li>
+        <li>Lieu : à distance uniquement, pour des clients partout en France.</li>
+        <li>TJM indicatif : de 600 à 750 € HT selon la mission.</li>
+        <li>Contrat : en direct avec mon entreprise (SIRET 520 039 132 00037) ou via
+          <a href="https://www.malt.fr/profile/benoithervier">Malt</a>.</li>
+        <li>Langues : français, anglais professionnel.</li>
+      </ul>
+
+      <h2>Secteurs</h2>
+      <p>J'ai travaillé pour les médias et le broadcast (Yacast), la medtech (Chronolife), la défense (avec
+        la DGA), les explosifs pour l'industrie minière (Davey Bickford Enaex), la finance (BNP Securities
+        Services) et l'immobilier (Century 21, avec Naxos). Le détail des projets est dans le
+        <a href="./#portfolio">portfolio</a>.</p>
+
+      <h2>Me contacter</h2>
+      <p>Le plus simple est de m'écrire à <a href="mailto:b@rvier.fr">b@rvier.fr</a> en décrivant le projet,
+        le contexte et le calendrier. Vous pouvez aussi passer par mon
+        <a href="https://www.malt.fr/profile/benoithervier">profil Malt</a> ou
+        <a href="https://www.linkedin.com/in/benoithervier/">LinkedIn</a>.</p>
+    </article>
+  </main>
+
+{{template "footer"}}
+</body>
+
+</html>
