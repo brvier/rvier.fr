@@ -59,15 +59,14 @@
         construisent. Chez Yacast, je suis lead developer et je dirige l'ensemble des développements, dont
         Hyperion, une plateforme qui enregistre en continu des chaînes TNT et DVB, des radios et des flux web.
         Son architecture est décrite dans
-        <a href="posts/recording-broadcast-24-7-capture-platform-architecture-EN" hreflang="en">ce billet</a>
-        (en anglais).</p>
+        <a href="posts/captation-broadcast-24-7-architecture-plateforme-FR">ce billet</a>.</p>
 
       <h3>Services backend en Go et Python</h3>
       <p>API, workers, orchestrateurs et systèmes distribués, avec PostgreSQL, RabbitMQ et Prometheus. Les
         orchestrateurs de reconnaissance musicale, d'empreintes audio et d'analyse des médias de Yacast sont
-        écrits en Go. J'ai expliqué <a href="posts/why-i-like-go-golang-EN" hreflang="en">pourquoi j'aime
-          Go</a>, et comment j'ai <a href="posts/byte-for-byte-reproducing-a-legacy-binary-format-EN"
-          hreflang="en">reproduit octet pour octet un format binaire non documenté</a> avec.</p>
+        écrits en Go. J'ai expliqué <a href="posts/pourquoi-j-aime-go-golang-FR">pourquoi j'aime
+          Go</a>, et comment j'ai <a href="posts/reproduire-octet-pour-octet-format-binaire-legacy-go-FR">reproduit
+          octet pour octet un format binaire non documenté</a> avec.</p>
 
       <h3>IA appliquée : transcription, OCR, LLM, recherche vectorielle</h3>
       <p>Je mets des modèles en production sur des volumes réels. Whisper transcrit 24 h/24 la télévision et
@@ -75,10 +74,10 @@
         affiné sur nos propres images lit les incrustations à l'écran, et des LLM auto-hébergés s'en servent
         pour enrichir les transcriptions. Les doublons de locuteurs sont fusionnés par recherche vectorielle
         dans PostgreSQL. Chaque sujet a son billet :
-        <a href="posts/running-whisper-24-7-on-broadcast-streams-EN" hreflang="en">Whisper</a>,
-        <a href="posts/ocr-llm-enrichment-broadcast-transcripts-EN" hreflang="en">OCR et LLM</a>,
-        <a href="posts/fine-tuning-easyocr-on-your-own-frames-EN" hreflang="en">affinage d'EasyOCR</a> et
-        <a href="posts/deduplicating-speakers-with-pgvector-and-hnsw-EN" hreflang="en">pgvector</a>.</p>
+        <a href="posts/whisper-24-7-transcription-tele-radio-gpu-FR">Whisper</a>,
+        <a href="posts/ocr-llm-auto-heberges-enrichir-transcriptions-broadcast-FR">OCR et LLM</a>,
+        <a href="posts/fine-tuning-easyocr-sur-ses-propres-images-FR">affinage d'EasyOCR</a> et
+        <a href="posts/pgvector-hnsw-dedoublonner-locuteurs-postgresql-FR">pgvector</a>.</p>
 
       <h3>Pipelines audio et vidéo</h3>
       <p>FFmpeg, captation TNT, DVB, radio et web, décodage matériel avec NVDEC ou NetInt Quadra. Quand une

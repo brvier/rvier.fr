@@ -58,7 +58,9 @@ keywords: Go, Golang, something                # JSON-LD keywords
 featured: true          # listed under "Blog" in llms.txt (others go under "Optional")
 translation: my-new-post-FR   # slug of the same post in the other language:
                               # hreflang links and a visible "read in" link,
-                              # on both posts (declaring one side is enough)
+                              # on both posts (declaring one side is enough);
+                              # the blog index and llms.txt list the pair once,
+                              # as the English post linking to the French one
 ---
 
 Markdown body. Raw HTML is allowed, e.g. sized images:

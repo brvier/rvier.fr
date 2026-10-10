@@ -58,7 +58,7 @@ Blog links below point to the Markdown version of each post; drop the trailing .
 ## Blog: selected technical posts
 
 {{range .Featured -}}
-- [{{oneline .Title}}]({{.MarkdownURL}}){{if eq .Lang "fr"}} (in French){{end}}: {{oneline .Description}}
+- [{{oneline .Title}}]({{.MarkdownURL}}){{if eq .Lang "fr"}} (in French){{end}}{{with .Translation}} ([French version]({{.MarkdownURL}})){{end}}: {{oneline .Description}}
 {{end -}}
 - [All posts](https://rvier.fr/posts/)
 
@@ -71,7 +71,7 @@ Blog links below point to the Markdown version of each post; drop the trailing .
 ## Optional
 
 {{range .Other -}}
-- [{{oneline .Title}}]({{.MarkdownURL}}){{if eq .Lang "fr"}} (in French){{end}}: {{oneline .Description}}
+- [{{oneline .Title}}]({{.MarkdownURL}}){{if eq .Lang "fr"}} (in French){{end}}{{with .Translation}} ([French version]({{.MarkdownURL}})){{end}}: {{oneline .Description}}
 {{end -}}
 {{range index .Projects "unmaintained" -}}
 {{if .Link -}}

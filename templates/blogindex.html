@@ -34,7 +34,8 @@
     <div class="space-y-8">
 {{range .Posts}}
       <article class="bg-[var(--bg-light)] p-6 rounded-lg shadow-lg">
-        <p class="text-sm opacity-70 mb-1"><time datetime="{{.Date}}">{{.DisplayDate}}</time> · {{.LangTag}}</p>
+        <p class="text-sm opacity-70 mb-1"><time datetime="{{.Date}}">{{.DisplayDate}}</time> · {{.LangTag}}{{with .Translation}} · <a href="{{.Slug}}"
+            hreflang="{{.Lang}}" lang="{{.Lang}}" class="text-[var(--accent)] hover:underline">{{.InLang}}</a>{{end}}</p>
         <h2 class="text-2xl font-semibold mb-2"><a href="{{.Slug}}"
             class="text-[var(--accent)] hover:underline">{{.Title}}</a></h2>
         <p>{{.Summary}}</p>

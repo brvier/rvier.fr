@@ -88,6 +88,14 @@ func (p Post) ReadIn() string {
 	return "Read this post in English"
 }
 
+// InLang is the short label of a link to p from a list, in p's own language.
+func (p Post) InLang() string {
+	if p.Lang == "fr" {
+		return "en français"
+	}
+	return "in English"
+}
+
 func (p Post) JSONLD() (template.JS, error) {
 	type author struct {
 		Type string `json:"@type"`
@@ -483,7 +491,15 @@ func main() {
 			log.Fatal(err)
 		}
 	}
-	if err := renderToFile(indexTpl, filepath.Join(outDir, "posts", "index.html"), map[string]any{"Posts": posts}); err != nil {
+	// The blog index and llms.txt are in English: a translated pair is listed
+	// once, as its English post, which links to the French version.
+	var listed []Post
+	for _, p := range posts {
+		if p.Translation == nil || p.Lang == "en" {
+			listed = append(listed, p)
+		}
+	}
+	if err := renderToFile(indexTpl, filepath.Join(outDir, "posts", "index.html"), map[string]any{"Posts": listed}); err != nil {
 		log.Fatal(err)
 	}
 	if err := renderToFile(homeTpl, filepath.Join(outDir, "index.html"), map[string]any{"Sections": secs}); err != nil {
@@ -504,7 +520,7 @@ func main() {
 
 	// llms.txt: featured posts in the main Blog section, the rest under Optional.
 	var featured, other []Post
-	for _, p := range posts {
+	for _, p := range listed {
 		if p.Featured {
 			featured = append(featured, p)
 		} else {
