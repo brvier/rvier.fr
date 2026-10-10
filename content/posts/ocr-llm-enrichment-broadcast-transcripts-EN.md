@@ -1,6 +1,7 @@
 ---
 title: 'Reading the screen: OCR and self-hosted LLMs to enrich broadcast transcripts'
 date: '2026-07-26'
+updated: '2026-10-09'
 lang: en
 featured: true
 description: 'How we extract on-screen text from TV frames (per-channel boxes, live-content gating, a recognizer fine-tuned on our own frames, spellchecker-adjusted confidence) and turn raw transcripts into titles, entities and classifications with LLM workers built as strict-contract pipeline stages.'
@@ -20,7 +21,7 @@ The screen of a news channel is full of metadata that speech never carries: the 
 
 A generic "OCR the whole frame" produces noise: tickers, ads, program logos. What we actually want lives in stable regions that each channel keeps for years. So each channel has *boxes* in a PostgreSQL table: a speaker-banner zone and a subject-strap zone, stored as normalized coordinates (resolution-independent), drawn once in a small internal UI and reloaded by the workers every hour.
 
-The OCR pass itself (EasyOCR, French and English) still reads the full frame, one frame per second: detections are then filtered by box, grouped into lines by their Y coordinate, and concatenated. Running detection once and filtering by zone is cheaper than running the recognizer three times on three crops, and it keeps the option of adding a new box without touching the worker.
+The OCR pass itself (EasyOCR, French and English) still reads the full frame, one frame per second: detections are then filtered by box, grouped into lines by their Y coordinate, and concatenated. Running detection once and filtering by zone is cheaper than running the recognizer on a separate crop for each box, and it keeps the option of adding a new box without touching the worker.
 
 ## A cheap gate before any OCR
 
@@ -51,11 +52,11 @@ The detector stays stock; only the recognition head is ours. The result is a 15 
 
 ## LLM enrichment: a worker like any other
 
-The enrichment stage takes a window of diarized transcript segments and asks a model to return, per segment: a title, five keywords, the persons, places and organizations mentioned, and one topic code from a closed list of fifteen (politics, economy, sport...). Architecturally it is the same pull-queue worker as everything else in the platform: fetch task, fetch STT window, call the model, validate, push results, set a per-stage status code. The LLM is just another flaky dependency.
+The enrichment stage takes a window of diarized transcript segments and asks a model to return, per segment: a title, five keywords, the persons, places and organizations mentioned, one topic code from a closed list of fifteen (politics, economy, sport...), and the segment's start and end dates, copied back unchanged. Architecturally it is the same pull-queue worker as everything else in the platform: fetch task, fetch STT window, call the model, validate, push results, set a per-stage status code. The LLM is just another flaky dependency.
 
 The lessons are all in the prompt and the handling around it:
 
-- **The prompt is an output contract, not a conversation.** Ours specifies the exact JSON array shape, one object per input segment, single-letter field names (`t`, `k`, `sd`, `ed`, `p`, `l`, `o`, `c`) to keep output tokens down, and explicit prohibitions: never invent or modify a date, never return the transcript content, never merge segments.
+- **The prompt is an output contract, not a conversation.** Ours specifies the exact JSON array shape, one object per input segment, one- or two-letter field names (`t`, `k`, `sd`, `ed`, `p`, `l`, `o`, `c`) to keep output tokens down, and explicit prohibitions: never invent or modify a date, never return the transcript content, never merge segments.
 - **Give the model a boring escape hatch.** Non-editorial segments (jingles, weather loops, transitions) must come back as `t: "Inconnu"`, class 15. Without a designated dumping ground, the model classifies noise creatively.
 - **Ask for the correction you would do anyway.** The prompt tells the model to normalize proper names that are "manifestly phonetic": a transcript hears *"Ursula fonderlayen"*, the enrichment returns the person as *Ursula von der Leyen*. The LLM fixes the STT for free, at the only stage that has enough context to do it.
 - **Validate like it will fail, because it will.** The response is parsed strictly; a malformed JSON marks the task in error, and the core's retry service re-queues it. No partial parsing, no regex rescue of almost-JSON.

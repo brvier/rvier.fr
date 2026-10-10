@@ -1,6 +1,7 @@
 ---
 title: 'Running Whisper 24/7: transcribing French TV and radio on a fleet of GPUs'
 date: '2026-07-24'
+updated: '2026-10-09'
 lang: en
 featured: true
 description: 'Experience report from a production speech-to-text pipeline: WhisperX and pyannote diarization on multi-GPU workers, dynamic GPU rebalancing, crash-only CUDA error handling, and audio that is never as clean as the demo.'
@@ -76,7 +77,7 @@ Chunk downloads themselves are written to a temp file, fsynced, then renamed: th
 Model choice and decoding options are ordinary (large-v3, float16, batch inference, beam 5). Three settings earned their place in production on broadcast content:
 
 - `condition_on_previous_text: False`. Conditioning helps coherence on clean speech and *amplifies* hallucination loops on jingles, music beds and silence. On broadcast audio the trade is not close: a transcript that repeats "merci d'avoir regardé" forty times is worse than slightly less fluent punctuation.
-- An aggressive VAD (pyannote, low onset/offset thresholds) in front of the model. Whisper hallucinates on non-speech; the cheapest fix is to not show it non-speech.
+- A permissive VAD in front of the model (pyannote, onset and offset at 0.1, where WhisperX defaults to 0.5 and 0.363). Whisper hallucinates on non-speech, so the VAD drops what is clearly not speech; the low thresholds keep a voice over a music bed from being cut along with it.
 - Word-level alignment as a separate pass (WhisperX). Whisper's own segment timestamps are too coarse to attribute words to diarized speaker turns; the forced-alignment pass is what makes "who said this word" possible at all.
 
 ## From voices to identities

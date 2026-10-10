@@ -10,7 +10,7 @@ keywords: ffmpeg, HEVC, Canal+, bitstream filter, NetInt, Quadra, entrelacé, fi
 summary: 'Comment un flux Canal+ en HEVC 1080i field-coded, refusé par le décodeur NetInt Quadra, est passé en décodage matériel grâce à un bitstream filter ffmpeg qui efface la signalisation d''entrelacement. Avec le code, la ligne ffmpeg, les résultats sur un flux corrompu, et la réponse de NetInt.'
 ---
 
-Dans la [plateforme de captation](recording-broadcast-24-7-capture-platform-architecture-EN), il y a un flux que j'ai fini par appeler « le flux merdique de Canal ». C'est une chaîne du bouquet Canal+ reçue par satellite, « Barker à la une », en HEVC 1080i :
+Dans la [plateforme de captation](captation-broadcast-24-7-architecture-plateforme-FR), il y a un flux que j'ai fini par appeler « le flux merdique de Canal ». C'est une chaîne du bouquet Canal+ reçue par satellite, « Barker à la une », en HEVC 1080i :
 
 - un entrelacement qu'aucun de nos décodeurs matériels n'accepte
 - 12 % de paquets corrompus

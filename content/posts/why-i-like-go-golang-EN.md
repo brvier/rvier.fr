@@ -1,6 +1,7 @@
 ---
 title: Why I like Go / Golang
 date: '2024-06-01'
+updated: '2026-10-09'
 lang: en
 description: 'Why I like Go: fast compilation, gofmt, a rich standard library, explicit error handling, goroutines and channels for concurrency, and static cross-platform binaries.'
 ogDescription: Fast compilation, gofmt, explicit error handling, goroutines and static cross-platform binaries.
@@ -13,7 +14,7 @@ summary: Fast compilation, gofmt, a rich standard library, explicit error handli
 - Clear error messages
 - Go format: Go's formatting rules ensure consistency throughout the codebase, making it easier for developers to read and understand each other's code.
 - The standard library in Go is very well provided, and does not require a heavy-duty web framework.
-- Backward compatibility of the language: Go 1.x maintains binary compatibility with previous versions, which means that programs compiled with older Go versions can still run without modification. Migration to newer versions is easy, and actually there is no plan for a version 2.x.
+- Backward compatibility of the language: the Go 1 compatibility promise covers source code, which means that programs written for an older Go 1.x release still compile and run with a newer one without modification. Migration to newer versions is easy, and actually there is no plan for a version 2.x.
 
 ## Error management
 

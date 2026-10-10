@@ -1,6 +1,7 @@
 ---
 title: 'Byte-for-byte: reproducing an undocumented legacy binary format in Go'
 date: '2026-06-05'
+updated: '2026-10-09'
 lang: en
 featured: true
 description: 'Rewriting a legacy media pipeline in Go meant reproducing an undocumented binary sidecar format byte-for-byte: reverse-engineering floor(min(mean(|s16|)/256, 127)) per 10 ms window, a fractional carry accumulator, and the unit tests that prove conformance.'
@@ -63,7 +64,8 @@ in := pcm(48000*2, 25600)
 Compute(&out, bytes.NewReader(in), 48000, 2)
 // assert: exactly 100 bytes, all equal to 100
 
-// Full-scale 16-bit (32767) -> 32767/256 = 127.99 -> clamped to 127.
+// Negative full scale (-32768) -> |s| = 32768 -> 32768/256 = 128 -> clamped to 127.
+// (32767 would not test the clamp: floor(127.99) is already 127.)
 
 // 661 mono samples at 44100 (1.5 windows) -> 1 byte emitted,
 // trailing 220 samples discarded, like the binary.

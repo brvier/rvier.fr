@@ -1,6 +1,7 @@
 ---
 title: 'Recording broadcast 24/7: the architecture of a capture platform'
 date: '2026-08-14'
+updated: '2026-10-09'
 lang: en
 featured: true
 description: 'The architecture behind years of continuous TV and radio capture: time-addressed immutable chunks, multicast as a decoupling layer, a control plane that can die without stopping the recording, tiered storage, and a repair layer that assumes nothing is ever perfect.'
@@ -67,7 +68,7 @@ Immutability is what keeps this boring. A chunk is written once and never modifi
 
 ## Packing chunks into blobs
 
-There is one more layer between "chunk" and "disk", and it exists because of arithmetic. Chunks are seconds long; multiply by two or three qualities, by every channel, by 24/7, by years, and you get hundreds of millions of small files. Filesystems hate that: inode pressure, directory listings that take minutes, backups and scrubs dominated by metadata rather than data. Small files are the classic way to kill a storage cluster with data that is, in total, not even that big.
+There is one more layer between "chunk" and "disk", and it exists because of arithmetic. Chunks are seconds long; multiply by up to four qualities, by every channel, by 24/7, by years, and you get hundreds of millions of small files. Filesystems hate that: inode pressure, directory listings that take minutes, backups and scrubs dominated by metadata rather than data. Small files are the classic way to kill a storage cluster with data that is, in total, not even that big.
 
 So chunks are not stored as files. A storage daemon (affectionately named *Blobibloba*, hence "blobbers") appends them into **blob files**: one blob per channel, per quality, per fixed time window, the window being simply the chunk timestamp truncated. Next to each blob lives a small index file mapping chunk timestamp to offset and length, and each entry carries the chunk's duration, CRC32 and a discontinuity flag. Serving `(media, t)` is a lookup in the index and one positioned read; appending is sequential I/O, which is exactly what both spinning disks and Ceph like.
 

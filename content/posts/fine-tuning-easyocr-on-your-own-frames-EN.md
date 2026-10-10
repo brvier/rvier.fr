@@ -1,6 +1,7 @@
 ---
 title: 'Fine-tuning EasyOCR on your own frames: a practical guide'
 date: '2026-08-16'
+updated: '2026-10-09'
 lang: en
 featured: true
 description: 'The complete recipe we used to fine-tune EasyOCR''s recognition network on TV overlay crops: auto-labelling with the stock model, a tiny Tkinter correction UI, the VGG+BiLSTM+CTC training configuration starting from latin_g2, and deployment with recog_network.'
@@ -61,6 +62,7 @@ batch_size: 32
 num_iter: 300000
 saved_model: saved_models/latin/latin_g2.pth   # start from stock weights
 new_prediction: True
+sensitive: True
 character: "0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ €ABC...àâäæçéèêëîïôœùûüÿ"
 ```
 
@@ -68,10 +70,10 @@ The decisions worth explaining:
 
 - **Start from `latin_g2`, never from scratch.** The stock weights already know what glyphs look like; you are teaching fonts and layout, not the alphabet. From-scratch training on 4,500 images would simply overfit.
 - **`new_prediction: True`** replaces the final classification layer, which you need whenever your character set differs from the base model's. Ours is trimmed to what actually appears on French TV overlays: digits, punctuation, the euro sign, and French accented characters (114 classes total). A smaller output layer is a small win in itself; not asking the model to distinguish glyphs it will never see is the bigger one.
-- **`imgW: 600` and `imgH: 64`** match the shape of the real crops. The default trainer settings assume smaller scene-text snippets; wide banners squashed into a narrow input lose exactly the kerning detail we are trying to learn.
+- **`imgW: 600` and `imgH: 64`**, as in EasyOCR's example config, match the shape of the real crops. Keep them: the 32×100 defaults inherited from deep-text-recognition-benchmark assume small scene-text snippets, and wide banners squashed into a narrow input lose exactly the kerning detail we are trying to learn.
 - **Case-sensitive (`sensitive: True`)** even though overlays are mostly upper-case, because the mixed-case minority (names, titles) is where errors hurt most.
 
-Practical warnings: the trainer is research-grade code. Expect to pin dependency versions and patch small incompatibilities when your PyTorch is newer than the trainer (we did). Keep the validation set as crops from *days and channels not present in training*, otherwise your accuracy number measures memorization. On a single GPU, this configuration trains overnight.
+Practical warnings: the trainer is research-grade code. Expect to pin dependency versions and patch small incompatibilities when your PyTorch is newer than the trainer (we did). Keep the validation set as crops from *days and channels not present in training*, otherwise your accuracy number measures memorization. `num_iter` is an upper bound, not a target: the trainer validates every `valInterval` iterations and saves `best_accuracy.pth`, and that is the checkpoint to deploy, not the last iteration, which may have overfit 4,500 crops. On a single GPU, this configuration trains overnight.
 
 ## Step 4: deploy with three files
 

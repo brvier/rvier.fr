@@ -1,6 +1,7 @@
 ---
 title: 'Vector search in PostgreSQL: deduplicating thousands of speakers with pgvector and HNSW'
 date: '2026-07-10'
+updated: '2026-10-09'
 lang: en
 featured: true
 description: How I replaced an O(N²) cosine similarity self-join that timed out with an HNSW index and LATERAL k-nearest-neighbour queries in pgvector, to deduplicate thousands of voice embeddings in PostgreSQL.
@@ -115,8 +116,7 @@ One last piece makes the whole thing stable. A centroid computed from noisy fing
 
 ## Takeaways
 
-- pgvector's HNSW index accelerates exactly one query shape: `ORDER BY embedding <=> $1
-            LIMIT k`. If your distance expression lives in a `WHERE` clause or a join condition, you are doing a sequential scan, whatever indexes exist.
+- pgvector's HNSW index accelerates exactly one query shape: `ORDER BY embedding <=> $1 LIMIT k`. If your distance expression lives in a `WHERE` clause or a join condition, you are doing a sequential scan, whatever indexes exist.
 - `CROSS JOIN LATERAL` is the bridge: it turns "compare everything with everything" into "one indexed k-NN lookup per row".
 - HNSW is approximate. Combined with a small k, a single pass can miss pairs, design the surrounding process (rounds, periodic re-runs) so that misses are caught later instead of pretending the index is exhaustive.
 - When entities are mutable aggregates (centroids), never batch-apply decisions computed from stale state. Greedy non-overlapping merges per round keep every decision based on fresh data, at the cost of a few extra query rounds, which are cheap now that they are indexed.
