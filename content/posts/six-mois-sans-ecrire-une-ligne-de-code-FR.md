@@ -4,31 +4,34 @@ date: '2026-11-23'
 lang: fr
 description: 'Depuis six mois, je n''écris plus de code moi-même, sauf pour le plaisir d''un casse-tête ou d''une session de débogage en assembleur. Comment j''en suis arrivé là, de la complétion de ligne à l''agent à qui je donne l''architecture, les habitudes que les LLM m''ont fait prendre et qui améliorent le code, et ce qu''ils font maintenant de mes tickets, de mes mails et de Slack.'
 ogDescription: 'De la complétion de ligne à l''agent qui code sous mon architecture : six mois sans taper de code, et un code meilleur qu''avant.'
+image: https://rvier.fr/images/six-mois-sans-code.png
 keywords: LLM, IA, agents de code, complétion de code, qualité logicielle, tests, changelog, refactoring, architecture logicielle, support, productivité, développeur
-summary: 'Six mois sans taper une ligne de code, hors casse-têtes et assembleur. Le chemin en quatre étapes, de la complétion de ligne à l''agent qui code sous mon architecture, les habitudes qui ont amélioré mon code en trois mois, et le même principe appliqué aux tickets de support, aux mails et à Slack.'
+summary: 'Six mois sans taper une ligne de code, hors casse-têtes et assembleur. Ce que je lui ai laissé peu à peu, de la complétion de ligne à l''agent qui code sous mon architecture, les habitudes qui ont amélioré mon code en trois mois, et le même principe appliqué aux tickets de support, aux mails et à Slack.'
 ---
 
 Cela fait six mois que je n'ai pas écrit une ligne de code. Enfin, presque : j'en écris encore pour le plaisir, quand j'ai envie d'un casse-tête, ou pour débugger de l'assembleur. Tout le reste, au travail comme sur mes projets personnels, c'est un LLM qui le tape.
 
-Je ne m'y suis pas mis par conviction, ni du jour au lendemain. C'est devenu, étape après étape, beaucoup plus rapide et plus efficace que de taper moi-même.
+<img src="../images/six-mois-sans-code.png" alt="Un clavier d'ordinateur vu de dessus dont toutes les touches sont éteintes, sauf la barre d'espace allumée en orange sous un doigt, entourée d'ondes de dictée" loading="lazy" width="1200" height="627">
 
-## Étape 1 : finir la ligne
+Je ne m'y suis pas mis par conviction, ni du jour au lendemain. C'est devenu, peu à peu, beaucoup plus rapide et plus efficace que de taper moi-même. À chaque fois que les modèles ont franchi un cap, et ils ont énormément évolué, je leur ai laissé un peu plus.
+
+## Je lui laisse la fin de la ligne
 
 Au début, le LLM complétait la ligne en cours. Je commençais, il devinait la fin. C'était de l'autocomplétion améliorée, mais déjà efficace : il prédisait le plus souvent exactement ce que j'allais écrire.
 
-## Étape 2 : écrire les lignes suivantes
+## Je lui laisse les lignes suivantes
 
 Puis il s'est mis à proposer les lignes d'après, et c'est là que j'ai commencé à gagner du temps pour de bon.
 
 J'écris une requête SQL : il propose la structure Go qui reçoit le résultat, avec les bons champs et les bons types, d'après la requête juste au-dessus. Je colle la réponse JSON d'une API : il en tire la structure correspondante, tags compris. Rien de difficile dans ce code. Seulement des dizaines de lignes fastidieuses, où l'on se trompe par inattention.
 
-## Étape 3 : décrire une petite fonction
+## Je lui laisse la fonction
 
 Ensuite, j'ai arrêté de commencer les lignes. Je décrivais une petite fonction, exactement : ce qu'elle reçoit, ce qu'elle rend, les cas limites. Le LLM l'écrivait, je la relisais.
 
 Le mot important est « exactement ». À ce stade, je restais l'auteur : je savais quel code je voulais, je le faisais seulement taper par un autre.
 
-## Étape 4 : donner l'architecture, laisser coder
+## Je lui laisse le code, je garde l'architecture
 
 Aujourd'hui, je ne décris plus les fonctions. Je donne l'architecture du code et l'architecture logicielle complète, et le LLM écrit le reste : les fonctions, les tests, les migrations, l'interface.
 
@@ -70,7 +73,7 @@ Le même glissement s'est produit en dehors de l'éditeur. J'utilise maintenant 
 
 Il rédige aussi tout ce qui entoure le code. Il résume les modifications dans les messages de commit et les changelogs. Il prépare ma revue quotidienne pour le daily meeting, à partir de ce qui a réellement été fait la veille et non de ce dont je me souviens. Et il produit une documentation et des notes de version pour les utilisateurs qui ne sont pas techniques : le même changement, raconté sans nom de fonction ni numéro de migration. Cette traduction-là, je ne la faisais presque jamais, et ce sont pourtant eux qui utilisent le logiciel.
 
-C'est le schéma de l'étape 4, appliqué ailleurs : la machine prépare, je décide. Rien ne part sans que je l'aie lu.
+C'est le même schéma que pour le code, appliqué ailleurs : la machine prépare, je décide. Rien ne part sans que je l'aie lu.
 
 ## Je relis tout, je corrige de moins en moins
 
